@@ -14,6 +14,7 @@ namespace Air_Tany_App
 {
     public partial class MainLayout : Form
     {
+        public string SessionToken;
         public MainLayout()
         {
             InitializeComponent();
