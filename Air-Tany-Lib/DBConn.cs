@@ -23,9 +23,7 @@ namespace Air_Tany_Lib
             connBuilder.Password = pwd;
             connBuilder.OldGuids = true;
 
-            //_connection = new MySqlConnection(connBuilder.ConnectionString);
-            _connection = new MySqlConnection($"port={port};server={host};database={dataBase};uid={userName};password={pwd}");
-            Console.WriteLine($"port={port};server={host};database={dataBase};uid={userName};password={pwd}");
+            _connection = new MySqlConnection(connBuilder.ConnectionString);
         }
         public MySqlConnection Connection
         {
