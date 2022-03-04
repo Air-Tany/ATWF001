@@ -7,9 +7,9 @@ using MySql.Data.MySqlClient;
 
 namespace Air_Tany_Lib
 {
-    class Common
+    static public class Common
     {
-        public string rdmString(int length = 16, string charList = "0123456789abcdefghijklmnopqrstuvwxyz")
+        static public string rdmString(int length = 16, string charList = "0123456789abcdefghijklmnopqrstuvwxyz")
         {
             char[] result = new char[length];
             Random rand = new Random();
@@ -23,7 +23,7 @@ namespace Air_Tany_Lib
 
         }
 
-        public int? checkUserCredentials(string UserName, string PasswordHash, DBConn Conn)
+        static public int? checkUserCredentials(string UserName, string PasswordHash, DBConn Conn) // le ? peut etre nul 
         {
             MySqlCommand cmd = new MySqlCommand($"SELECT `stf_id` FROM `staff` WHERE `stf_username` = {UserName} AND `stf_password` = {PasswordHash}", Conn.Connection);
             object result = cmd.ExecuteScalar();
@@ -35,13 +35,26 @@ namespace Air_Tany_Lib
             return Uid;
         }
 
-        public string createSessionToken(int? Uid)
+        static public string createSessionToken(int? Uid, DBConn Conn)
         {
 
             if (Uid != null)
             {
-                string rdmToken = rdmString(255, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
-                MySqlCommand cmd = new MySqlCommand($"INSERT INTO `session_token`( `stk_token`, `stk_creation_date`, `stk_expiration_date`, `stf_id`) VALUES ('[value-2]','[value-3]','[value-4]','[value-5]')  "
+                string rdmToken = rdmString(255, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+                MySqlCommand cmd = new MySqlCommand($"INSERT INTO `session_token`( `stk_token`, `stk_creation_date`, `stf_id`) VALUES ('{rdmToken}',NOW(),'{Uid}'); SELECT LAST_INSERT_ID();", Conn.Connection);
+                int res = (int)(UInt64) cmd.ExecuteScalar();
+                if (res != -1)
+                {
+                    return rdmToken;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
             }
         }
             

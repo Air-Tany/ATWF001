@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using Air_Tany_Lib;
 
 namespace Air_Tany_App
 {
@@ -32,6 +33,7 @@ namespace Air_Tany_App
         }
         public LogIn()
         {
+         
             InitializeComponent();
         }
         public string UserName
@@ -56,15 +58,30 @@ namespace Air_Tany_App
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+         
+        }
+
+        private void LogIn_Load_1(object sender, EventArgs e)
+        {
+
+        }
+        public void submitForm()
+        {
             _userName = txbUsername.Text;
             _passwordHash = SHA512(txbPassword.Text);
             _stayLogIn = cbxStayLogIn.Checked;
 
+            int? uid = Common.checkUserCredentials(_userName, _passwordHash, Program.connection);
+            if (uid.HasValue)
+            {
+                string TK = Common.createSessionToken(uid, Program.connection);
+                if (TK != null)
+                {
+                    Program.sessionToken = TK;
 
-
-            this.Close();
+                }
+            }
+            Close();
         }
-
-        
     }
 }

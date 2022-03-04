@@ -14,13 +14,11 @@ namespace Air_Tany_App
 {
     public partial class MainLayout : Form
     {
-        public string SessionToken;
         public MainLayout()
         {
             InitializeComponent();
         }
 
-        DBConn connection;
         private void OptExit_Click(object sender, EventArgs e)
         {
             Close();
@@ -28,8 +26,8 @@ namespace Air_Tany_App
 
         private void OptConnect_Click(object sender, EventArgs e)
         {
-            LogIn connection = new LogIn();
-            connection.ShowDialog();
+            LogIn connectionForm = new LogIn();
+            connectionForm.ShowDialog();
         }
         public bool CreateConnection()
         {
@@ -38,8 +36,8 @@ namespace Air_Tany_App
             string dataBase = ConfigurationManager.ConnectionStrings["DBDatabase"].ConnectionString;
             string userName = ConfigurationManager.ConnectionStrings["DBUsername"].ConnectionString;
             string pwd = ConfigurationManager.ConnectionStrings["DBPassword"].ConnectionString;
-            connection = new DBConn(port, host, dataBase, userName, pwd);
-            return connection.Open();
+            Program.connection = new DBConn(port, host, dataBase, userName, pwd); // insère la connexion au Program.con...
+            return Program.connection.Open();
 
         }
 

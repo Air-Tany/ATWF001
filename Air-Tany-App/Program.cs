@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Air_Tany_Lib;
 
 namespace Air_Tany_App
 {
@@ -18,5 +19,8 @@ namespace Air_Tany_App
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainLayout());
         }
+        static public string sessionToken;
+        static public DBConn connection;
+        
     }
 }
