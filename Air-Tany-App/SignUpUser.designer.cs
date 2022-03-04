@@ -45,7 +45,9 @@ namespace Air_Tany_App
             this.lblMail = new System.Windows.Forms.Label();
             this.lblFirstname = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.cbxEnableEndDate = new System.Windows.Forms.CheckBox();
+            this.cbxEndDate = new System.Windows.Forms.CheckBox();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.txbUsername = new System.Windows.Forms.TextBox();
             this.pnlTextfield.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,11 +101,11 @@ namespace Air_Tany_App
             // 
             this.dtpEndDate.CalendarForeColor = System.Drawing.Color.DimGray;
             this.dtpEndDate.CalendarMonthBackground = System.Drawing.Color.DarkGray;
+            this.dtpEndDate.Enabled = false;
             this.dtpEndDate.Location = new System.Drawing.Point(651, 271);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(237, 22);
             this.dtpEndDate.TabIndex = 8;
-            this.dtpEndDate.Visible = false;
             // 
             // label1
             // 
@@ -131,11 +133,14 @@ namespace Air_Tany_App
             this.btnValidate.TabIndex = 14;
             this.btnValidate.Text = "Valider";
             this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
             // 
             // pnlTextfield
             // 
             this.pnlTextfield.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlTextfield.Controls.Add(this.txbUsername);
+            this.pnlTextfield.Controls.Add(this.lblUsername);
             this.pnlTextfield.Controls.Add(this.txbMail);
             this.pnlTextfield.Controls.Add(this.txbFirstname);
             this.pnlTextfield.Controls.Add(this.txbName);
@@ -152,7 +157,7 @@ namespace Air_Tany_App
             this.txbMail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbMail.Location = new System.Drawing.Point(218, 114);
+            this.txbMail.Location = new System.Drawing.Point(216, 92);
             this.txbMail.Name = "txbMail";
             this.txbMail.Size = new System.Drawing.Size(458, 22);
             this.txbMail.TabIndex = 18;
@@ -162,7 +167,7 @@ namespace Air_Tany_App
             this.txbFirstname.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbFirstname.Location = new System.Drawing.Point(218, 75);
+            this.txbFirstname.Location = new System.Drawing.Point(216, 53);
             this.txbFirstname.Name = "txbFirstname";
             this.txbFirstname.Size = new System.Drawing.Size(458, 22);
             this.txbFirstname.TabIndex = 17;
@@ -172,7 +177,7 @@ namespace Air_Tany_App
             this.txbName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbName.Location = new System.Drawing.Point(218, 36);
+            this.txbName.Location = new System.Drawing.Point(216, 14);
             this.txbName.Name = "txbName";
             this.txbName.Size = new System.Drawing.Size(458, 22);
             this.txbName.TabIndex = 16;
@@ -183,7 +188,7 @@ namespace Air_Tany_App
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(138, 117);
+            this.lblMail.Location = new System.Drawing.Point(136, 95);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(55, 17);
             this.lblMail.TabIndex = 15;
@@ -195,7 +200,7 @@ namespace Air_Tany_App
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFirstname.AutoSize = true;
-            this.lblFirstname.Location = new System.Drawing.Point(128, 78);
+            this.lblFirstname.Location = new System.Drawing.Point(126, 56);
             this.lblFirstname.Name = "lblFirstname";
             this.lblFirstname.Size = new System.Drawing.Size(65, 17);
             this.lblFirstname.TabIndex = 14;
@@ -207,29 +212,51 @@ namespace Air_Tany_App
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(148, 39);
+            this.lblName.Location = new System.Drawing.Point(146, 17);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(45, 17);
             this.lblName.TabIndex = 13;
             this.lblName.Text = "Nom :";
             // 
-            // cbxEnableEndDate
+            // cbxEndDate
             // 
-            this.cbxEnableEndDate.AutoSize = true;
-            this.cbxEnableEndDate.Location = new System.Drawing.Point(651, 310);
-            this.cbxEnableEndDate.Name = "cbxEnableEndDate";
-            this.cbxEnableEndDate.Size = new System.Drawing.Size(99, 21);
-            this.cbxEnableEndDate.TabIndex = 16;
-            this.cbxEnableEndDate.Text = "Date de fin";
-            this.cbxEnableEndDate.UseVisualStyleBackColor = true;
-            this.cbxEnableEndDate.CheckedChanged += new System.EventHandler(this.cbxEnableEndDate_CheckedChanged);
+            this.cbxEndDate.AutoSize = true;
+            this.cbxEndDate.Location = new System.Drawing.Point(678, 314);
+            this.cbxEndDate.Name = "cbxEndDate";
+            this.cbxEndDate.Size = new System.Drawing.Size(174, 21);
+            this.cbxEndDate.TabIndex = 16;
+            this.cbxEndDate.Text = "Ajouter une date de fin";
+            this.cbxEndDate.UseVisualStyleBackColor = true;
+            this.cbxEndDate.CheckedChanged += new System.EventHandler(this.cbxEndDate_CheckedChanged);
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(70, 135);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(121, 17);
+            this.lblUsername.TabIndex = 19;
+            this.lblUsername.Text = "Nom d\'utilisateur :";
+            // 
+            // txbUsername
+            // 
+            this.txbUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbUsername.Location = new System.Drawing.Point(216, 132);
+            this.txbUsername.Name = "txbUsername";
+            this.txbUsername.Size = new System.Drawing.Size(458, 22);
+            this.txbUsername.TabIndex = 20;
             // 
             // SignUpUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 505);
-            this.Controls.Add(this.cbxEnableEndDate);
+            this.Controls.Add(this.cbxEndDate);
             this.Controls.Add(this.pnlTextfield);
             this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.btnCancel);
@@ -266,6 +293,8 @@ namespace Air_Tany_App
         private System.Windows.Forms.Label lblMail;
         private System.Windows.Forms.Label lblFirstname;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.CheckBox cbxEnableEndDate;
+        private System.Windows.Forms.CheckBox cbxEndDate;
+        private System.Windows.Forms.TextBox txbUsername;
+        private System.Windows.Forms.Label lblUsername;
     }
 }

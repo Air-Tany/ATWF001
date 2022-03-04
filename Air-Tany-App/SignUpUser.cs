@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using Air_Tany_Lib;
 
 namespace Air_Tany_App
 {
@@ -17,15 +19,28 @@ namespace Air_Tany_App
             InitializeComponent();
         }
 
-        private void cbxEnableEndDate_CheckedChanged(object sender, EventArgs e)
+        private void cbxEndDate_CheckedChanged(object sender, EventArgs e)
         {
-            dtpEndDate.CalendarForeColor = Color.Black;
-            dtpEndDate.CalendarMonthBackground = Color.White;
+            dtpEndDate.Enabled = !dtpEndDate.Enabled;
         }
 
-        private void SignUpUser_Load(object sender, EventArgs e)
+        private void btnValidate_Click(object sender, EventArgs e)
         {
-            dtpEndDate.Visible = !dtpEndDate.Visible;
+            string lastname = txbName.Text;
+            string firstname = txbFirstname.Text;
+            string username = txbUsername.Text;
+            string mail = txbMail.Text;
+            string password = Common.SHA512(Common.rdmString(16, "0123456789abcdefghijklmnopqrstuvwxyz"));
+            MySqlCommand signup = new MySqlCommand($"ISERT INTO staff (`stf_lastname`, `stf_firstname`, `stf_username`, `stf_email`, `stf_password`) VALUES ('{lastname}', '{firstname}', '{username}', '{mail}', '{password}')", Program.connection.Connection);
+            try
+            {
+                signup.ExecuteNonQuery();
+            }
+            catch
+            {
+                MessageBox.Show("Erreur d'exécution");
+            }
+
         }
     }
 }
