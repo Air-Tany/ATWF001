@@ -42,6 +42,7 @@ namespace Air_Tany_App
             this.OptCreateTables = new System.Windows.Forms.ToolStripMenuItem();
             this.OptFillTables = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.créerUnUtilisateurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,21 +76,21 @@ namespace Air_Tany_App
             // OptConnect
             // 
             this.OptConnect.Name = "OptConnect";
-            this.OptConnect.Size = new System.Drawing.Size(191, 26);
+            this.OptConnect.Size = new System.Drawing.Size(224, 26);
             this.OptConnect.Text = "Connexion";
             this.OptConnect.Click += new System.EventHandler(this.OptConnect_Click);
             // 
             // OptDeconnect
             // 
             this.OptDeconnect.Name = "OptDeconnect";
-            this.OptDeconnect.Size = new System.Drawing.Size(191, 26);
+            this.OptDeconnect.Size = new System.Drawing.Size(224, 26);
             this.OptDeconnect.Text = "Déconnexion";
             // 
             // OptExit
             // 
             this.OptExit.Name = "OptExit";
             this.OptExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.OptExit.Size = new System.Drawing.Size(191, 26);
+            this.OptExit.Size = new System.Drawing.Size(224, 26);
             this.OptExit.Text = "Quitter";
             this.OptExit.Click += new System.EventHandler(this.OptExit_Click);
             // 
@@ -121,7 +122,8 @@ namespace Air_Tany_App
             // 
             this.MnuAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.OptCreateTables,
-            this.OptFillTables});
+            this.OptFillTables,
+            this.créerUnUtilisateurToolStripMenuItem});
             this.MnuAdmin.Name = "MnuAdmin";
             this.MnuAdmin.Size = new System.Drawing.Size(121, 24);
             this.MnuAdmin.Text = "Administration";
@@ -129,13 +131,13 @@ namespace Air_Tany_App
             // OptCreateTables
             // 
             this.OptCreateTables.Name = "OptCreateTables";
-            this.OptCreateTables.Size = new System.Drawing.Size(224, 26);
+            this.OptCreateTables.Size = new System.Drawing.Size(225, 26);
             this.OptCreateTables.Text = "Création des tables";
             // 
             // OptFillTables
             // 
             this.OptFillTables.Name = "OptFillTables";
-            this.OptFillTables.Size = new System.Drawing.Size(224, 26);
+            this.OptFillTables.Size = new System.Drawing.Size(225, 26);
             this.OptFillTables.Text = "Remplir les tables";
             // 
             // MnuAbout
@@ -143,6 +145,13 @@ namespace Air_Tany_App
             this.MnuAbout.Name = "MnuAbout";
             this.MnuAbout.Size = new System.Drawing.Size(84, 24);
             this.MnuAbout.Text = "A propos";
+            // 
+            // créerUnUtilisateurToolStripMenuItem
+            // 
+            this.créerUnUtilisateurToolStripMenuItem.Name = "créerUnUtilisateurToolStripMenuItem";
+            this.créerUnUtilisateurToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.créerUnUtilisateurToolStripMenuItem.Text = "Créer un utilisateur...";
+            this.créerUnUtilisateurToolStripMenuItem.Click += new System.EventHandler(this.créerUnUtilisateurToolStripMenuItem_Click);
             // 
             // MainLayout
             // 
@@ -175,6 +184,7 @@ namespace Air_Tany_App
         private System.Windows.Forms.ToolStripMenuItem OptCreateTables;
         private System.Windows.Forms.ToolStripMenuItem OptFillTables;
         private System.Windows.Forms.ToolStripMenuItem MnuAbout;
+        private System.Windows.Forms.ToolStripMenuItem créerUnUtilisateurToolStripMenuItem;
     }
 }
 

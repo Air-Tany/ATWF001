@@ -49,5 +49,11 @@ namespace Air_Tany_App
                 Close();
             }
         }
+
+        private void créerUnUtilisateurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SignUpUser form = new SignUpUser();
+            form.ShowDialog();
+        }
     }
 }
