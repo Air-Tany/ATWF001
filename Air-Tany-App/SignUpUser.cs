@@ -30,24 +30,16 @@ namespace Air_Tany_App
             string firstname = txbFirstname.Text;
             string username = txbUsername.Text;
             string mail = txbMail.Text;
-            string job = cbxJob.Text;
-            DateTime start_date = dtpStartDate.Value;
-            DateTime end_date = dtpEndDate.Value;
-            string password = Common.rdmString(16, "0123456789abcdefghijklmnopqrstuvwxyz");
-            MySqlCommand signup = new MySqlCommand($"INSERT INTO staff (`stf_lastname`, `stf_firstname`, `stf_username`, `stf_email`, `stf_password`) VALUES ('{lastname}', '{firstname}', '{username}', '{mail}', '{Common.SHA512(password)}'); SELECT LAST_INSERT_ID()", Program.connection.Connection);
-            int res = (int)(UInt64)signup.ExecuteScalar();
-            if (res != -1)
+            string password = Common.SHA512(Common.rdmString(16, "0123456789abcdefghijklmnopqrstuvwxyz"));
+            MySqlCommand signup = new MySqlCommand($"ISERT INTO staff (`stf_lastname`, `stf_firstname`, `stf_username`, `stf_email`, `stf_password`) VALUES ('{lastname}', '{firstname}', '{username}', '{mail}', '{password}')", Program.connection.Connection);
+            try
             {
-                MySqlCommand q = new MySqlCommand($"INSERT INTO job (`job_name`, `job_start_date`, `job_end_date`, `stf_id`) VALUES ('{job}', '{start_date.ToString("s")}', {(cbxEndDate.Checked ? $"'{end_date.ToString("s")}'" : "NULL")}, '{res}')", Program.connection.Connection);
-                q.ExecuteNonQuery();
-                MessageBox.Show(password);
+                signup.ExecuteNonQuery();
             }
-            Close();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
+            catch
+            {
+                MessageBox.Show("Erreur d'exécution");
+            }
         }
     }
 }
