@@ -42,10 +42,11 @@ namespace Air_Tany_App
                 q.ExecuteNonQuery();
                 MessageBox.Show(password);
             }
-            else
-            {
-                
-            }
+            Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
             Close();
         }
     }

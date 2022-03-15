@@ -33,9 +33,9 @@ namespace Air_Tany_App
             this.lblPassword = new System.Windows.Forms.Label();
             this.txbUsername = new System.Windows.Forms.TextBox();
             this.txbPassword = new System.Windows.Forms.TextBox();
-            this.cbxStayLogIn = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnConnect = new System.Windows.Forms.Button();
+            this.cbxStayLogIn = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -70,16 +70,6 @@ namespace Air_Tany_App
             this.txbPassword.Size = new System.Drawing.Size(456, 22);
             this.txbPassword.TabIndex = 3;
             // 
-            // cbxStayLogIn
-            // 
-            this.cbxStayLogIn.AutoSize = true;
-            this.cbxStayLogIn.Location = new System.Drawing.Point(320, 213);
-            this.cbxStayLogIn.Name = "cbxStayLogIn";
-            this.cbxStayLogIn.Size = new System.Drawing.Size(151, 21);
-            this.cbxStayLogIn.TabIndex = 4;
-            this.cbxStayLogIn.Text = "Se souvenir de moi";
-            this.cbxStayLogIn.UseVisualStyleBackColor = true;
-            // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(124, 355);
@@ -99,6 +89,16 @@ namespace Air_Tany_App
             this.btnConnect.Text = "Connexion";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // cbxStayLogIn
+            // 
+            this.cbxStayLogIn.AutoSize = true;
+            this.cbxStayLogIn.Location = new System.Drawing.Point(320, 213);
+            this.cbxStayLogIn.Name = "cbxStayLogIn";
+            this.cbxStayLogIn.Size = new System.Drawing.Size(151, 21);
+            this.cbxStayLogIn.TabIndex = 4;
+            this.cbxStayLogIn.Text = "Se souvenir de moi";
+            this.cbxStayLogIn.UseVisualStyleBackColor = true;
             // 
             // LogIn
             // 
@@ -126,8 +126,8 @@ namespace Air_Tany_App
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txbUsername;
         private System.Windows.Forms.TextBox txbPassword;
-        private System.Windows.Forms.CheckBox cbxStayLogIn;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.CheckBox cbxStayLogIn;
     }
 }

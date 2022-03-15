@@ -62,7 +62,7 @@ namespace Air_Tany_App
             this.MnuAbout});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(921, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(921, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -79,21 +79,22 @@ namespace Air_Tany_App
             // OptConnect
             // 
             this.OptConnect.Name = "OptConnect";
-            this.OptConnect.Size = new System.Drawing.Size(191, 26);
+            this.OptConnect.Size = new System.Drawing.Size(224, 26);
             this.OptConnect.Text = "Connexion";
             this.OptConnect.Click += new System.EventHandler(this.OptConnect_Click);
             // 
             // OptDeconnect
             // 
             this.OptDeconnect.Name = "OptDeconnect";
-            this.OptDeconnect.Size = new System.Drawing.Size(191, 26);
+            this.OptDeconnect.Size = new System.Drawing.Size(224, 26);
             this.OptDeconnect.Text = "Déconnexion";
+            this.OptDeconnect.Click += new System.EventHandler(this.OptDeconnect_Click);
             // 
             // OptExit
             // 
             this.OptExit.Name = "OptExit";
             this.OptExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.OptExit.Size = new System.Drawing.Size(191, 26);
+            this.OptExit.Size = new System.Drawing.Size(224, 26);
             this.OptExit.Text = "Quitter";
             this.OptExit.Click += new System.EventHandler(this.OptExit_Click);
             // 
@@ -181,7 +182,7 @@ namespace Air_Tany_App
             this.Controls.Add(this.menuStrip1);
             this.Name = "MainLayout";
             this.Text = "AirTany";
-            this.Load += new System.EventHandler(this.MainLayout_Load);
+            this.Load += new System.EventHandler(this.créerUnUtilisateurToolStripMenuItem_Click);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

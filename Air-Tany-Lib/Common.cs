@@ -77,16 +77,29 @@ namespace Air_Tany_Lib
 
         public static UserInfo GetUserInfo(DBConn Conn, string TK)
         {
-            MySqlCommand cmd = new MySqlCommand($"SELECT `stf_lastname`, `stf_firstname`, `stf_username`, `stf_email` FROM `session_token` NATURAL JOIN `staff` WHERE session_token.stk_token = '{TK}'", Conn.Connection);
+            MySqlCommand cmd = new MySqlCommand($"SELECT `stf_id`, `stf_lastname`, `stf_firstname`, `stf_username`, `stf_email` FROM `session_token` NATURAL JOIN `staff` WHERE session_token.stk_token = '{TK}'", Conn.Connection);
             using (MySqlDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    return new UserInfo(reader["stf_lastname"].ToString(), reader["stf_firstname"].ToString(), reader["stf_username"].ToString(), reader["stf_email"].ToString());
+                    return new UserInfo((int)reader["stf_id"], reader["stf_lastname"].ToString(), reader["stf_firstname"].ToString(), reader["stf_username"].ToString(), reader["stf_email"].ToString());
                 }
                 return null;
             }
         }
 
+        public static string GetJob(int id, DBConn Conn)
+        {
+            MySqlCommand req = new MySqlCommand($"SELECT `job_name` FROM `job` WHERE `job`.`stf_id` = '{id}' AND (`job`.`job_end_date` >= NOW() OR `job`.`job_end_date` IS NULL) ORDER BY `job`.`job_start_date` DESC LIMIT 1", Conn.Connection);
+            string res = (string)req.ExecuteScalar();
+            if (!string.IsNullOrEmpty(res))
+            {
+                return res;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
