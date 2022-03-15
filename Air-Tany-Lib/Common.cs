@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace Air_Tany_Lib
 {
@@ -25,14 +26,16 @@ namespace Air_Tany_Lib
 
         static public int? checkUserCredentials(string UserName, string PasswordHash, DBConn Conn) // le ? peut etre nul 
         {
-            MySqlCommand cmd = new MySqlCommand($"SELECT `stf_id` FROM `staff` WHERE `stf_username` = {UserName} AND `stf_password` = {PasswordHash}", Conn.Connection);
-            object result = cmd.ExecuteScalar();
-            int? Uid = null;
-            if (result.GetType() != typeof(DBNull))
+            MySqlCommand cmd = new MySqlCommand($"SELECT `stf_id` FROM `staff` WHERE `stf_username` = '{UserName}' AND `stf_password` = '{PasswordHash}'", Conn.Connection);
+            try
             {
-                Uid = (int?)result;
+                int? Uid = (int?)cmd.ExecuteScalar();
+                return Uid;
             }
-            return Uid;
+            catch
+            {
+                return null;
+            }
         }
 
         static public string createSessionToken(int? Uid, DBConn Conn)
@@ -69,6 +72,19 @@ namespace Air_Tany_Lib
                 foreach (var b in hashedInputBytes)
                     hashedInputStringBuilder.Append(b.ToString("X2"));
                 return hashedInputStringBuilder.ToString();
+            }
+        }
+
+        public static UserInfo GetUserInfo(DBConn Conn, string TK)
+        {
+            MySqlCommand cmd = new MySqlCommand($"SELECT `stf_lastname`, `stf_firstname`, `stf_username`, `stf_email` FROM `session_token` NATURAL JOIN `staff` WHERE session_token.stk_token = '{TK}'", Conn.Connection);
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    return new UserInfo(reader["stf_lastname"].ToString(), reader["stf_firstname"].ToString(), reader["stf_username"].ToString(), reader["stf_email"].ToString());
+                }
+                return null;
             }
         }
 

@@ -28,6 +28,11 @@ namespace Air_Tany_App
         {
             LogIn connectionForm = new LogIn();
             connectionForm.ShowDialog();
+            if (!string.IsNullOrEmpty(Program.sessionToken))
+            {
+                UserInfo userInfo = Common.GetUserInfo(Program.connection, Program.sessionToken);
+                tsslLogIn.Text = $"Bonjour {userInfo.firstname} {userInfo.lastname}";
+            }
         }
         public bool CreateConnection()
         {

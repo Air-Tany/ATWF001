@@ -45,7 +45,7 @@ namespace Air_Tany_App
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-         
+            submitForm();
         }
 
         private void LogIn_Load_1(object sender, EventArgs e)
@@ -68,6 +68,11 @@ namespace Air_Tany_App
 
                 }
             }
+            Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
             Close();
         }
     }

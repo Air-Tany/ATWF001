@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Air_Tany_Lib
+{
+    public class UserInfo
+    {
+        private string _lastname;
+        private string _firstname;
+        private string _username;
+        private string _email;
+        
+        public UserInfo(string lastanme, string firstname, string username, string email)
+        {
+            _lastname = lastanme;
+            _firstname = firstname;
+            _username = username;
+            _email = email;
+        }
+
+        public string lastname
+        {
+            get => _lastname;
+        }
+
+        public string firstname
+        {
+            get => _firstname;
+        }
+
+        public string username
+        {
+            get => _username;
+        }
+
+        public string email
+        {
+            get => _email;
+        }
+    }
+}

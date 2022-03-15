@@ -43,7 +43,7 @@ namespace Air_Tany_App
             this.lblUsername.AutoSize = true;
             this.lblUsername.Location = new System.Drawing.Point(121, 65);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(112, 16);
+            this.lblUsername.Size = new System.Drawing.Size(121, 17);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Nom d\'utilisateur :";
             // 
@@ -52,7 +52,7 @@ namespace Air_Tany_App
             this.lblPassword.AutoSize = true;
             this.lblPassword.Location = new System.Drawing.Point(121, 139);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(73, 16);
+            this.lblPassword.Size = new System.Drawing.Size(77, 17);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password :";
             // 
@@ -75,7 +75,7 @@ namespace Air_Tany_App
             this.cbxStayLogIn.AutoSize = true;
             this.cbxStayLogIn.Location = new System.Drawing.Point(320, 213);
             this.cbxStayLogIn.Name = "cbxStayLogIn";
-            this.cbxStayLogIn.Size = new System.Drawing.Size(144, 20);
+            this.cbxStayLogIn.Size = new System.Drawing.Size(151, 21);
             this.cbxStayLogIn.TabIndex = 4;
             this.cbxStayLogIn.Text = "Se souvenir de moi";
             this.cbxStayLogIn.UseVisualStyleBackColor = true;
@@ -88,6 +88,7 @@ namespace Air_Tany_App
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnConnect
             // 
@@ -97,6 +98,7 @@ namespace Air_Tany_App
             this.btnConnect.TabIndex = 6;
             this.btnConnect.Text = "Connexion";
             this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // LogIn
             // 
