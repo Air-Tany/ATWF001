@@ -80,21 +80,21 @@ namespace Air_Tany_App
             // OptConnect
             // 
             this.OptConnect.Name = "OptConnect";
-            this.OptConnect.Size = new System.Drawing.Size(180, 22);
+            this.OptConnect.Size = new System.Drawing.Size(153, 22);
             this.OptConnect.Text = "Connexion";
             this.OptConnect.Click += new System.EventHandler(this.OptConnect_Click);
             // 
             // OptDeconnect
             // 
             this.OptDeconnect.Name = "OptDeconnect";
-            this.OptDeconnect.Size = new System.Drawing.Size(180, 22);
+            this.OptDeconnect.Size = new System.Drawing.Size(153, 22);
             this.OptDeconnect.Text = "Déconnexion";
             // 
             // OptExit
             // 
             this.OptExit.Name = "OptExit";
             this.OptExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.OptExit.Size = new System.Drawing.Size(180, 22);
+            this.OptExit.Size = new System.Drawing.Size(153, 22);
             this.OptExit.Text = "Quitter";
             this.OptExit.Click += new System.EventHandler(this.OptExit_Click);
             // 
@@ -181,9 +181,10 @@ namespace Air_Tany_App
             this.ClientSize = new System.Drawing.Size(691, 316);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainLayout";
             this.Text = "AirTany";
+            this.Load += new System.EventHandler(this.MainLayout_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

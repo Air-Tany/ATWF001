@@ -83,5 +83,14 @@ namespace Air_Tany_App
                 MnuAdmin.Visible = false;
             }
         }
+
+        private void MainLayout_Load(object sender, EventArgs e)
+        {
+            if (! CreateConnection())
+            {
+                MessageBox.Show("La connexion a échoué. Veuillez réessayer.");
+                Close();
+            }
+        }
     }
 }
