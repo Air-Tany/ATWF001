@@ -29,9 +29,6 @@ namespace Air_Tany_App
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbxAdmin = new System.Windows.Forms.CheckBox();
-            this.cbxResponsible = new System.Windows.Forms.CheckBox();
-            this.cbxSuspended = new System.Windows.Forms.CheckBox();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.lblStartDate = new System.Windows.Forms.Label();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
@@ -39,6 +36,8 @@ namespace Air_Tany_App
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnValidate = new System.Windows.Forms.Button();
             this.pnlTextfield = new System.Windows.Forms.Panel();
+            this.txbUsername = new System.Windows.Forms.TextBox();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.txbMail = new System.Windows.Forms.TextBox();
             this.txbFirstname = new System.Windows.Forms.TextBox();
             this.txbName = new System.Windows.Forms.TextBox();
@@ -46,40 +45,9 @@ namespace Air_Tany_App
             this.lblFirstname = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.cbxEndDate = new System.Windows.Forms.CheckBox();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.txbUsername = new System.Windows.Forms.TextBox();
+            this.cbxJob = new System.Windows.Forms.ComboBox();
             this.pnlTextfield.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cbxAdmin
-            // 
-            this.cbxAdmin.AutoSize = true;
-            this.cbxAdmin.Location = new System.Drawing.Point(250, 227);
-            this.cbxAdmin.Name = "cbxAdmin";
-            this.cbxAdmin.Size = new System.Drawing.Size(121, 21);
-            this.cbxAdmin.TabIndex = 3;
-            this.cbxAdmin.Text = "Administrateur";
-            this.cbxAdmin.UseVisualStyleBackColor = true;
-            // 
-            // cbxResponsible
-            // 
-            this.cbxResponsible.AutoSize = true;
-            this.cbxResponsible.Location = new System.Drawing.Point(250, 271);
-            this.cbxResponsible.Name = "cbxResponsible";
-            this.cbxResponsible.Size = new System.Drawing.Size(113, 21);
-            this.cbxResponsible.TabIndex = 4;
-            this.cbxResponsible.Text = "Responsable";
-            this.cbxResponsible.UseVisualStyleBackColor = true;
-            // 
-            // cbxSuspended
-            // 
-            this.cbxSuspended.AutoSize = true;
-            this.cbxSuspended.Location = new System.Drawing.Point(250, 314);
-            this.cbxSuspended.Name = "cbxSuspended";
-            this.cbxSuspended.Size = new System.Drawing.Size(94, 21);
-            this.cbxSuspended.TabIndex = 5;
-            this.cbxSuspended.Text = "Suspendu";
-            this.cbxSuspended.UseVisualStyleBackColor = true;
             // 
             // dtpStartDate
             // 
@@ -151,6 +119,28 @@ namespace Air_Tany_App
             this.pnlTextfield.Name = "pnlTextfield";
             this.pnlTextfield.Size = new System.Drawing.Size(804, 172);
             this.pnlTextfield.TabIndex = 15;
+            // 
+            // txbUsername
+            // 
+            this.txbUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbUsername.Location = new System.Drawing.Point(216, 132);
+            this.txbUsername.Name = "txbUsername";
+            this.txbUsername.Size = new System.Drawing.Size(458, 22);
+            this.txbUsername.TabIndex = 20;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(70, 135);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(121, 17);
+            this.lblUsername.TabIndex = 19;
+            this.lblUsername.Text = "Nom d\'utilisateur :";
             // 
             // txbMail
             // 
@@ -229,33 +219,24 @@ namespace Air_Tany_App
             this.cbxEndDate.UseVisualStyleBackColor = true;
             this.cbxEndDate.CheckedChanged += new System.EventHandler(this.cbxEndDate_CheckedChanged);
             // 
-            // lblUsername
+            // cbxJob
             // 
-            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(70, 135);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(121, 17);
-            this.lblUsername.TabIndex = 19;
-            this.lblUsername.Text = "Nom d\'utilisateur :";
-            // 
-            // txbUsername
-            // 
-            this.txbUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbUsername.Location = new System.Drawing.Point(216, 132);
-            this.txbUsername.Name = "txbUsername";
-            this.txbUsername.Size = new System.Drawing.Size(458, 22);
-            this.txbUsername.TabIndex = 20;
+            this.cbxJob.FormattingEnabled = true;
+            this.cbxJob.Items.AddRange(new object[] {
+            "Administrateur",
+            "Responsable",
+            "Trader"});
+            this.cbxJob.Location = new System.Drawing.Point(191, 264);
+            this.cbxJob.Name = "cbxJob";
+            this.cbxJob.Size = new System.Drawing.Size(205, 24);
+            this.cbxJob.TabIndex = 17;
             // 
             // SignUpUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 505);
+            this.Controls.Add(this.cbxJob);
             this.Controls.Add(this.cbxEndDate);
             this.Controls.Add(this.pnlTextfield);
             this.Controls.Add(this.btnValidate);
@@ -264,9 +245,6 @@ namespace Air_Tany_App
             this.Controls.Add(this.dtpEndDate);
             this.Controls.Add(this.lblStartDate);
             this.Controls.Add(this.dtpStartDate);
-            this.Controls.Add(this.cbxSuspended);
-            this.Controls.Add(this.cbxResponsible);
-            this.Controls.Add(this.cbxAdmin);
             this.Name = "SignUpUser";
             this.Text = "SignUpUser";
             this.pnlTextfield.ResumeLayout(false);
@@ -277,9 +255,6 @@ namespace Air_Tany_App
         }
 
         #endregion
-        private System.Windows.Forms.CheckBox cbxAdmin;
-        private System.Windows.Forms.CheckBox cbxResponsible;
-        private System.Windows.Forms.CheckBox cbxSuspended;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.DateTimePicker dtpEndDate;
@@ -296,5 +271,6 @@ namespace Air_Tany_App
         private System.Windows.Forms.CheckBox cbxEndDate;
         private System.Windows.Forms.TextBox txbUsername;
         private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.ComboBox cbxJob;
     }
 }
