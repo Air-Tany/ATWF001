@@ -47,10 +47,5 @@ namespace Air_Tany_Lib
         {
             get => _email;
         }
-
-        public int id
-        {
-            get => _id;
-        }
     }
 }

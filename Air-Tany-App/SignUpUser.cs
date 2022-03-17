@@ -24,6 +24,11 @@ namespace Air_Tany_App
             dtpEndDate.Enabled = !dtpEndDate.Enabled;
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void btnValidate_Click(object sender, EventArgs e)
         {
             string lastname = txbName.Text;
