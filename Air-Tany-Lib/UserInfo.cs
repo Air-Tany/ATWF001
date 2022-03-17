@@ -23,6 +23,11 @@ namespace Air_Tany_Lib
             _email = email;
         }
 
+        public int id
+        {
+            get => _id;
+        }
+
         public string lastname
         {
             get => _lastname;

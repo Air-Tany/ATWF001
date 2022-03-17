@@ -36,7 +36,6 @@ namespace Air_Tany_App
                 ShowAdminMnu();
             }
         }
-
         public bool CreateConnection()
         {
             string host = ConfigurationManager.ConnectionStrings["DBHost"].ConnectionString;
@@ -49,12 +48,6 @@ namespace Air_Tany_App
 
         }
 
-        private void créerUnUtilisateurToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SignUpUser form = new SignUpUser();
-            form.ShowDialog();
-        }
-
         private void OptDeconnect_Click(object sender, EventArgs e)
         {
             Program.sessionToken = null;
@@ -62,6 +55,14 @@ namespace Air_Tany_App
             ShowAdminMnu();
         }
 
+        private void MainLayout_Load(object sender, EventArgs e)
+        {
+            if (!CreateConnection())
+            {
+                MessageBox.Show("La connexion a échoué. Réessayer ultérieurement");
+                Close();
+            }
+        }
         public void ShowAdminMnu()
         {
             if (!string.IsNullOrEmpty(Program.sessionToken))
@@ -84,13 +85,10 @@ namespace Air_Tany_App
             }
         }
 
-        private void MainLayout_Load(object sender, EventArgs e)
+        private void créerUnUtilisateurToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (! CreateConnection())
-            {
-                MessageBox.Show("La connexion a échoué. Veuillez réessayer.");
-                Close();
-            }
+            SignUpUser form = new SignUpUser();
+            form.ShowDialog();
         }
     }
 }
