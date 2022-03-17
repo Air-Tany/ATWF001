@@ -17,6 +17,7 @@ namespace Air_Tany_App
         public MainLayout()
         {
             InitializeComponent();
+            ShowAdminMnu();
         }
 
         private void OptExit_Click(object sender, EventArgs e)
@@ -32,6 +33,7 @@ namespace Air_Tany_App
             {
                 UserInfo userInfo = Common.GetUserInfo(Program.connection, Program.sessionToken);
                 tsslLogIn.Text = $"Bonjour {userInfo.firstname} {userInfo.lastname}";
+                ShowAdminMnu();
             }
         }
         public bool CreateConnection()
@@ -46,12 +48,40 @@ namespace Air_Tany_App
 
         }
 
+        private void OptDeconnect_Click(object sender, EventArgs e)
+        {
+            Program.sessionToken = null;
+            tsslLogIn.Text = "";
+            ShowAdminMnu();
+        }
+
         private void MainLayout_Load(object sender, EventArgs e)
         {
             if (!CreateConnection())
             {
                 MessageBox.Show("La connexion a échoué. Réessayer ultérieurement");
                 Close();
+            }
+        }
+        public void ShowAdminMnu()
+        {
+            if (!string.IsNullOrEmpty(Program.sessionToken))
+            {
+                UserInfo user = Common.GetUserInfo(Program.connection, Program.sessionToken);
+                string job = Common.GetJob(user.id, Program.connection);
+                switch (job)
+                {
+                    case "Administrateur":
+                        MnuAdmin.Visible = true;
+                        break;
+                    default:
+                        MnuAdmin.Visible = false;
+                        break;
+                }
+            }
+            else
+            {
+                MnuAdmin.Visible = false;
             }
         }
 

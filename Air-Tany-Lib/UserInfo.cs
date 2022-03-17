@@ -8,17 +8,24 @@ namespace Air_Tany_Lib
 {
     public class UserInfo
     {
+        private int _id;
         private string _lastname;
         private string _firstname;
         private string _username;
         private string _email;
         
-        public UserInfo(string lastanme, string firstname, string username, string email)
+        public UserInfo(int id, string lastanme, string firstname, string username, string email)
         {
+            _id = id;
             _lastname = lastanme;
             _firstname = firstname;
             _username = username;
             _email = email;
+        }
+
+        public int id
+        {
+            get => _id;
         }
 
         public string lastname

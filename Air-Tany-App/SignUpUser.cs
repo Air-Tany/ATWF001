@@ -42,10 +42,6 @@ namespace Air_Tany_App
                 q.ExecuteNonQuery();
                 MessageBox.Show(password);
             }
-            else
-            {
-                
-            }
             Close();
         }
     }
