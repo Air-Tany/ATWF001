@@ -80,14 +80,14 @@ namespace Air_Tany_App
             // OptConnect
             // 
             this.OptConnect.Name = "OptConnect";
-            this.OptConnect.Size = new System.Drawing.Size(224, 26);
+            this.OptConnect.Size = new System.Drawing.Size(191, 26);
             this.OptConnect.Text = "Connexion";
             this.OptConnect.Click += new System.EventHandler(this.OptConnect_Click);
             // 
             // OptDeconnect
             // 
             this.OptDeconnect.Name = "OptDeconnect";
-            this.OptDeconnect.Size = new System.Drawing.Size(224, 26);
+            this.OptDeconnect.Size = new System.Drawing.Size(191, 26);
             this.OptDeconnect.Text = "Déconnexion";
             this.OptDeconnect.Click += new System.EventHandler(this.OptDeconnect_Click);
             // 
@@ -95,7 +95,7 @@ namespace Air_Tany_App
             // 
             this.OptExit.Name = "OptExit";
             this.OptExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.OptExit.Size = new System.Drawing.Size(224, 26);
+            this.OptExit.Size = new System.Drawing.Size(191, 26);
             this.OptExit.Text = "Quitter";
             this.OptExit.Click += new System.EventHandler(this.OptExit_Click);
             // 
@@ -104,6 +104,7 @@ namespace Air_Tany_App
             this.MnuStaff.Name = "MnuStaff";
             this.MnuStaff.Size = new System.Drawing.Size(86, 24);
             this.MnuStaff.Text = "Personnel";
+            this.MnuStaff.Click += new System.EventHandler(this.MnuStaff_Click);
             // 
             // MnuProducts
             // 
