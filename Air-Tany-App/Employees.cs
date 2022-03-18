@@ -20,15 +20,16 @@ namespace Air_Tany_App
 
         private void btnDisplay_Click(object sender, EventArgs e)
         {
-            lstDisplay.Items.Clear();
-            MySqlCommand req = new MySqlCommand("SELECT * FROM staff");
-            req.Connection = Program.connection.Connection;
-            MySqlDataReader reader = req.ExecuteReader();
+            MySqlDataAdapter req = new MySqlDataAdapter("SELECT `stf`.`stf_lastname` AS `Nom`, `stf`.`stf_firstname` AS `Prenom`,`stf`.`stf_username` AS `NonUtilisateur`, `stf`.`stf_email` AS `Mail`, `job_name` AS ROLE FROM job NATURAL JOIN staff AS stf where `job`.`job_start_date` <= NOW() AND (`job_end_date` >= NOW() OR `job_end_date` IS NULL) ORDER BY `job`.`stf_id` ASC,`job_start_date` DESC", Program.connection.Connection);
+            DataTable dt = new DataTable();
+            req.Fill(dt);
+            dgvPersonnel.DataSource = dt;
+            
+        }
 
-            while (reader.Read())
-            {
-                lstDisplay.Items.Add(reader.GetValue(2));
-            }
+        private void Employees_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

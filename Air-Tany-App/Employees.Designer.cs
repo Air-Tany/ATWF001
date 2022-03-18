@@ -30,7 +30,8 @@ namespace Air_Tany_App
         private void InitializeComponent()
         {
             this.btnDisplay = new System.Windows.Forms.Button();
-            this.lstDisplay = new System.Windows.Forms.ListBox();
+            this.dgvPersonnel = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPersonnel)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDisplay
@@ -43,30 +44,33 @@ namespace Air_Tany_App
             this.btnDisplay.UseVisualStyleBackColor = true;
             this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
             // 
-            // lstDisplay
+            // dgvPersonnel
             // 
-            this.lstDisplay.FormattingEnabled = true;
-            this.lstDisplay.ItemHeight = 16;
-            this.lstDisplay.Location = new System.Drawing.Point(260, 27);
-            this.lstDisplay.Name = "lstDisplay";
-            this.lstDisplay.Size = new System.Drawing.Size(507, 388);
-            this.lstDisplay.TabIndex = 2;
+            this.dgvPersonnel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPersonnel.Location = new System.Drawing.Point(241, 12);
+            this.dgvPersonnel.Name = "dgvPersonnel";
+            this.dgvPersonnel.RowHeadersWidth = 51;
+            this.dgvPersonnel.RowTemplate.Height = 24;
+            this.dgvPersonnel.Size = new System.Drawing.Size(536, 426);
+            this.dgvPersonnel.TabIndex = 2;
             // 
             // Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lstDisplay);
+            this.Controls.Add(this.dgvPersonnel);
             this.Controls.Add(this.btnDisplay);
             this.Name = "Employees";
             this.Text = "Employees";
+            this.Load += new System.EventHandler(this.Employees_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPersonnel)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Button btnDisplay;
-        private System.Windows.Forms.ListBox lstDisplay;
+        private System.Windows.Forms.DataGridView dgvPersonnel;
     }
 }

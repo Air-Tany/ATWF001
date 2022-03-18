@@ -90,7 +90,7 @@ namespace Air_Tany_Lib
 
         public static string GetJob(int id, DBConn Conn)
         {
-            MySqlCommand req = new MySqlCommand($"SELECT `job_name` FROM `job` WHERE `job`.`stf_id` = '{id}' AND (`job`.`job_end_date` >= NOW() OR `job`.`job_end_date` IS NULL) ORDER BY `job`.`job_start_date` DESC LIMIT 1", Conn.Connection);
+            MySqlCommand req = new MySqlCommand($"SELECT `job_name` FROM `job` WHERE `job`.`stf_id` = '{id}' AND (`job`.`job_start_date` <= NOW()) AND (`job`.`job_end_date` >= NOW() OR `job`.`job_end_date` IS NULL) ORDER BY `job`.`job_start_date` DESC LIMIT 1", Conn.Connection);
             string res = (string)req.ExecuteScalar();
             if (!string.IsNullOrEmpty(res))
             {
