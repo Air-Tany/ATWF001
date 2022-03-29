@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Air_Tany_Lib;
+
 
 namespace Air_Tany_App
 {
@@ -21,6 +23,8 @@ namespace Air_Tany_App
         }
         static public string sessionToken;
         static public DBConn connection;
+        static public string parent = Application.StartupPath;
+        static public string path = System.IO.Directory.GetParent(parent).Parent.FullName;
         
     }
-}
+}       

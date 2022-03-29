@@ -98,6 +98,7 @@
     <EmbeddedResource Include="SignUpUser.resx">
       <DependentUpon>SignUpUser.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="res\csv\libelles.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

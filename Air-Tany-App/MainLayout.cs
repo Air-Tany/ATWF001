@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Air_Tany_Lib;
 using System.Configuration;
+using System.Globalization;
+using System.IO;
+
 
 namespace Air_Tany_App
 {
     public partial class MainLayout : Form
     {
+
         public MainLayout()
         {
             InitializeComponent();
@@ -95,6 +99,18 @@ namespace Air_Tany_App
         {
             Employees form = new Employees();
             form.ShowDialog();
+        }
+
+        private void Cours_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OptFillTables_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(Program.path);
+            csvDB.CSV(Path.Combine(Program.path , @"\res\csv\libelles.csv"));
+            
         }
     }
 }

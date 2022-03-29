@@ -46,6 +46,7 @@ namespace Air_Tany_App
             // 
             // dgvPersonnel
             // 
+            this.dgvPersonnel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPersonnel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersonnel.Location = new System.Drawing.Point(241, 12);
             this.dgvPersonnel.Name = "dgvPersonnel";

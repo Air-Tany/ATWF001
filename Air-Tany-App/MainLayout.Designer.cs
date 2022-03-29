@@ -36,6 +36,7 @@ namespace Air_Tany_App
             this.OptExit = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuProducts = new System.Windows.Forms.ToolStripMenuItem();
+            this.Cours = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuOperations = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuDocuments = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,9 +109,18 @@ namespace Air_Tany_App
             // 
             // MnuProducts
             // 
+            this.MnuProducts.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Cours});
             this.MnuProducts.Name = "MnuProducts";
             this.MnuProducts.Size = new System.Drawing.Size(77, 24);
             this.MnuProducts.Text = "Produits";
+            // 
+            // Cours
+            // 
+            this.Cours.Name = "Cours";
+            this.Cours.Size = new System.Drawing.Size(224, 26);
+            this.Cours.Text = "Cours";
+            this.Cours.Click += new System.EventHandler(this.Cours_Click);
             // 
             // MnuOperations
             // 
@@ -145,6 +155,7 @@ namespace Air_Tany_App
             this.OptFillTables.Name = "OptFillTables";
             this.OptFillTables.Size = new System.Drawing.Size(225, 26);
             this.OptFillTables.Text = "Remplir les tables";
+            this.OptFillTables.Click += new System.EventHandler(this.OptFillTables_Click);
             // 
             // créerUnUtilisateurToolStripMenuItem
             // 
@@ -214,6 +225,7 @@ namespace Air_Tany_App
         private System.Windows.Forms.ToolStripMenuItem créerUnUtilisateurToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tsslLogIn;
+        private System.Windows.Forms.ToolStripMenuItem Cours;
     }
 }
 
