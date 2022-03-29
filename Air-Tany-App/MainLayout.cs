@@ -108,8 +108,8 @@ namespace Air_Tany_App
 
         private void OptFillTables_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(Program.path);
-            csvDB.CSV(Path.Combine(Program.path , @"\res\csv\libelles.csv"));
+            Console.WriteLine(Program.appPath);
+            csvDB.CSV(Path.Combine(Program.appPath, @"\res\csv\libelles.csv"));
             
         }
     }

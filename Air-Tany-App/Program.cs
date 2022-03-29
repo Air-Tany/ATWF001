@@ -23,8 +23,8 @@ namespace Air_Tany_App
         }
         static public string sessionToken;
         static public DBConn connection;
-        static public string parent = Application.StartupPath;
-        static public string path = System.IO.Directory.GetParent(parent).Parent.FullName;
-        
+        static public string execPath = Application.ExecutablePath;
+        static private IEnumerable<string> _tmp = execPath.Split('\\').Take(execPath.Length - 2);
+        static public string appPath = string.Join("\\", _tmp.Skip(1));
     }
 }       
