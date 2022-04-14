@@ -46,6 +46,7 @@ namespace Air_Tany_App
             // 
             // dgvPersonnel
             // 
+            this.dgvPersonnel.AllowUserToAddRows = false;
             this.dgvPersonnel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPersonnel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersonnel.Location = new System.Drawing.Point(241, 12);
@@ -54,6 +55,7 @@ namespace Air_Tany_App
             this.dgvPersonnel.RowTemplate.Height = 24;
             this.dgvPersonnel.Size = new System.Drawing.Size(536, 426);
             this.dgvPersonnel.TabIndex = 2;
+            this.dgvPersonnel.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPersonnel_RowHeaderMouseDoubleClick);
             // 
             // Employees
             // 

@@ -19,8 +19,9 @@ namespace Air_Tany_App
         }
         private void btnDisplay_Click(object sender, EventArgs e)
         {
-            MySqlDataAdapter req = new MySqlDataAdapter("SELECT `stf`.`stf_lastname` AS `Nom`,"+
+            MySqlDataAdapter req = new MySqlDataAdapter("SELECT	job_id AS ID, `stf`.`stf_lastname` AS `Nom`," +
                 "`stf`.`stf_firstname` AS `Prenom`,"+
+                
                 "`stf`.`stf_username` AS `NonUtilisateur`," +
                 " `stf`.`stf_email` AS `Mail`," +
                 " `job_name` AS ROLE " +
@@ -34,13 +35,22 @@ namespace Air_Tany_App
             DataTable dt = new DataTable();
             req.Fill(dt); 
             dgvPersonnel.DataSource = dt;
-           
+
             
         }
 
         private void Employees_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvPersonnel_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int id = int.Parse(dgvPersonnel.Rows[e.RowIndex].Cells[0].Value.ToString());//converti en entier
+            ModifStaff staff = new ModifStaff(id);
+            staff.ShowDialog();
+            staff.Dispose();
+            
         }
     }
 }
