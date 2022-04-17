@@ -63,8 +63,8 @@ namespace Air_Tany_App
             this.MnuAbout});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(921, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1030, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,20 +75,20 @@ namespace Air_Tany_App
             this.OptDeconnect,
             this.OptExit});
             this.MnuFile.Name = "MnuFile";
-            this.MnuFile.Size = new System.Drawing.Size(66, 24);
+            this.MnuFile.Size = new System.Drawing.Size(54, 20);
             this.MnuFile.Text = "Fichier";
             // 
             // OptConnect
             // 
             this.OptConnect.Name = "OptConnect";
-            this.OptConnect.Size = new System.Drawing.Size(191, 26);
+            this.OptConnect.Size = new System.Drawing.Size(153, 22);
             this.OptConnect.Text = "Connexion";
             this.OptConnect.Click += new System.EventHandler(this.OptConnect_Click);
             // 
             // OptDeconnect
             // 
             this.OptDeconnect.Name = "OptDeconnect";
-            this.OptDeconnect.Size = new System.Drawing.Size(191, 26);
+            this.OptDeconnect.Size = new System.Drawing.Size(153, 22);
             this.OptDeconnect.Text = "Déconnexion";
             this.OptDeconnect.Click += new System.EventHandler(this.OptDeconnect_Click);
             // 
@@ -96,14 +96,14 @@ namespace Air_Tany_App
             // 
             this.OptExit.Name = "OptExit";
             this.OptExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.OptExit.Size = new System.Drawing.Size(191, 26);
+            this.OptExit.Size = new System.Drawing.Size(153, 22);
             this.OptExit.Text = "Quitter";
             this.OptExit.Click += new System.EventHandler(this.OptExit_Click);
             // 
             // MnuStaff
             // 
             this.MnuStaff.Name = "MnuStaff";
-            this.MnuStaff.Size = new System.Drawing.Size(86, 24);
+            this.MnuStaff.Size = new System.Drawing.Size(71, 20);
             this.MnuStaff.Text = "Personnel";
             this.MnuStaff.Click += new System.EventHandler(this.MnuStaff_Click);
             // 
@@ -112,26 +112,26 @@ namespace Air_Tany_App
             this.MnuProducts.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Cours});
             this.MnuProducts.Name = "MnuProducts";
-            this.MnuProducts.Size = new System.Drawing.Size(77, 24);
+            this.MnuProducts.Size = new System.Drawing.Size(63, 20);
             this.MnuProducts.Text = "Produits";
             // 
             // Cours
             // 
             this.Cours.Name = "Cours";
-            this.Cours.Size = new System.Drawing.Size(224, 26);
+            this.Cours.Size = new System.Drawing.Size(105, 22);
             this.Cours.Text = "Cours";
             this.Cours.Click += new System.EventHandler(this.Cours_Click);
             // 
             // MnuOperations
             // 
             this.MnuOperations.Name = "MnuOperations";
-            this.MnuOperations.Size = new System.Drawing.Size(96, 24);
+            this.MnuOperations.Size = new System.Drawing.Size(77, 20);
             this.MnuOperations.Text = "Opérations";
             // 
             // MnuDocuments
             // 
             this.MnuDocuments.Name = "MnuDocuments";
-            this.MnuDocuments.Size = new System.Drawing.Size(98, 24);
+            this.MnuDocuments.Size = new System.Drawing.Size(80, 20);
             this.MnuDocuments.Text = "Documents";
             // 
             // MnuAdmin
@@ -141,33 +141,33 @@ namespace Air_Tany_App
             this.OptFillTables,
             this.créerUnUtilisateurToolStripMenuItem});
             this.MnuAdmin.Name = "MnuAdmin";
-            this.MnuAdmin.Size = new System.Drawing.Size(121, 24);
+            this.MnuAdmin.Size = new System.Drawing.Size(98, 20);
             this.MnuAdmin.Text = "Administration";
             // 
             // OptCreateTables
             // 
             this.OptCreateTables.Name = "OptCreateTables";
-            this.OptCreateTables.Size = new System.Drawing.Size(225, 26);
+            this.OptCreateTables.Size = new System.Drawing.Size(183, 22);
             this.OptCreateTables.Text = "Création des tables";
             // 
             // OptFillTables
             // 
             this.OptFillTables.Name = "OptFillTables";
-            this.OptFillTables.Size = new System.Drawing.Size(225, 26);
+            this.OptFillTables.Size = new System.Drawing.Size(183, 22);
             this.OptFillTables.Text = "Remplir les tables";
             this.OptFillTables.Click += new System.EventHandler(this.OptFillTables_Click);
             // 
             // créerUnUtilisateurToolStripMenuItem
             // 
             this.créerUnUtilisateurToolStripMenuItem.Name = "créerUnUtilisateurToolStripMenuItem";
-            this.créerUnUtilisateurToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.créerUnUtilisateurToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.créerUnUtilisateurToolStripMenuItem.Text = "Créer un utilisateur...";
             this.créerUnUtilisateurToolStripMenuItem.Click += new System.EventHandler(this.créerUnUtilisateurToolStripMenuItem_Click);
             // 
             // MnuAbout
             // 
             this.MnuAbout.Name = "MnuAbout";
-            this.MnuAbout.Size = new System.Drawing.Size(84, 24);
+            this.MnuAbout.Size = new System.Drawing.Size(67, 20);
             this.MnuAbout.Text = "A propos";
             // 
             // statusStrip1
@@ -175,26 +175,26 @@ namespace Air_Tany_App
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsslLogIn});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 367);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 482);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(921, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1030, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // tsslLogIn
             // 
             this.tsslLogIn.Name = "tsslLogIn";
-            this.tsslLogIn.Size = new System.Drawing.Size(0, 16);
+            this.tsslLogIn.Size = new System.Drawing.Size(0, 17);
             // 
             // MainLayout
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 389);
+            this.ClientSize = new System.Drawing.Size(1030, 504);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainLayout";
             this.Text = "AirTany";
             this.Load += new System.EventHandler(this.MainLayout_Load);
