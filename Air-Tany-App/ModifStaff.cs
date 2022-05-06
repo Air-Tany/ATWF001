@@ -49,7 +49,6 @@ namespace Air_Tany_App
                 updadeCMD.ExecuteNonQuery();
                 cmd.ExecuteNonQuery();
                 Close();
-
                 }
         }
     }

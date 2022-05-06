@@ -44,7 +44,8 @@ namespace Air_Tany_Lib
             if (Uid != null)
             {
                 string rdmToken = rdmString(255, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-                MySqlCommand cmd = new MySqlCommand($"INSERT INTO `session_token`( `stk_token`, `stk_creation_date`, `stf_id`) VALUES ('{rdmToken}',NOW(),'{Uid}'); SELECT LAST_INSERT_ID();", Conn.Connection);
+                MySqlCommand cmd = new MySqlCommand($"INSERT INTO `session_token`( `stk_token`, `stk_creation_date`, " +
+                    $"`stf_id`) VALUES ('{rdmToken}',NOW(),'{Uid}'); SELECT LAST_INSERT_ID();", Conn.Connection);
                 int res = (int)(UInt64) cmd.ExecuteScalar();
                 if (res != -1)
                 {
@@ -77,12 +78,14 @@ namespace Air_Tany_Lib
 
         public static UserInfo GetUserInfo(DBConn Conn, string TK)
         {
-            MySqlCommand cmd = new MySqlCommand($"SELECT `stf_id`, `stf_lastname`, `stf_firstname`, `stf_username`, `stf_email` FROM `session_token` NATURAL JOIN `staff` WHERE session_token.stk_token = '{TK}'", Conn.Connection);
+            MySqlCommand cmd = new MySqlCommand($"SELECT `stf_id`, `stf_lastname`, `stf_firstname`, " +
+                $"`stf_username`, `stf_email` FROM `session_token` NATURAL JOIN `staff` WHERE session_token.stk_token = '{TK}'", Conn.Connection);
             using (MySqlDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    return new UserInfo((int)reader["stf_id"], reader["stf_lastname"].ToString(), reader["stf_firstname"].ToString(), reader["stf_username"].ToString(), reader["stf_email"].ToString());
+                    return new UserInfo((int)reader["stf_id"], reader["stf_lastname"].ToString(), reader["stf_firstname"].ToString(), 
+                        reader["stf_username"].ToString(), reader["stf_email"].ToString());
                 }
                 return null;
             }
@@ -90,7 +93,9 @@ namespace Air_Tany_Lib
 
         public static string GetJob(int id, DBConn Conn)
         {
-            MySqlCommand req = new MySqlCommand($"SELECT `job_name` FROM `job` WHERE `job`.`stf_id` = '{id}' AND (`job`.`job_start_date` <= NOW()) AND (`job`.`job_end_date` >= NOW() OR `job`.`job_end_date` IS NULL) ORDER BY `job`.`job_start_date` DESC LIMIT 1", Conn.Connection);
+            MySqlCommand req = new MySqlCommand($"SELECT `job_name` FROM `job` WHERE `job`.`stf_id` = '{id}' AND " +
+                $"(`job`.`job_start_date` <= NOW()) AND (`job`.`job_end_date` >= NOW() OR `job`.`job_end_date` IS NULL) " +
+                $"ORDER BY `job`.`job_start_date` DESC LIMIT 1", Conn.Connection);
             string res = (string)req.ExecuteScalar();
             if (!string.IsNullOrEmpty(res))
             {

@@ -77,35 +77,38 @@ namespace Air_Tany_App
                 {
                     case "Administrateur":
                         MnuAdmin.Visible = true;
+                        MnuStaff.Visible = true;
                         break;
+                        
                     default:
                         MnuAdmin.Visible = false;
+                        MnuStaff.Visible = false;
                         break;
                 }
             }
             else
             {
                 MnuAdmin.Visible = false;
+                MnuStaff.Visible = false;
             }
         }
 
         private void créerUnUtilisateurToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             SignUpUser form = new SignUpUser();
             form.ShowDialog();
         }
 
         private void MnuStaff_Click(object sender, EventArgs e)
         {
-
             Employees form = new Employees();
             form.ShowDialog();
         }
 
         private void Cours_Click(object sender, EventArgs e)
         {
-
+            Stock form =new Stock();
+            form.ShowDialog();
         }
 
         private void OptFillTables_Click(object sender, EventArgs e)
