@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Air_Tany_Lib;
 
 namespace Air_Tany_App
 {
@@ -19,8 +20,7 @@ namespace Air_Tany_App
             InitializeComponent();
             idStaff = id;
             Text = "Modification de l'id " + id;
-            MySqlCommand cmd = new MySqlCommand($"Select job_name FROM job where job_id = {idStaff}", Program.connection.Connection);
-            cbxJob.Text =   cmd.ExecuteScalar().ToString();
+            cbxJob.Text = Common.GetJob(idStaff, Program.connection);
 
 
         }
@@ -34,17 +34,23 @@ namespace Air_Tany_App
         private void Modify_Click(object sender, EventArgs e)
         {
 
-                DialogResult dr = MessageBox.Show("Etes vous sur des modifications ? ", "message de confirmation", MessageBoxButtons.YesNoCancel,
+                DialogResult dr = MessageBox.Show("Etes vous sur des modifications ? ",
+                   "Message de confirmation", 
+                   MessageBoxButtons.YesNoCancel,
                    MessageBoxIcon.Information);
 
                 if (dr == DialogResult.Yes)
                 {
-                        string job = cbxJob.Text;
-                        string test = idStaff.ToString();
-                        MySqlCommand cmd = new MySqlCommand($"UPDATE `job` SET `job_name`='{job}' WHERE job_id = {test}", Program.connection.Connection);
-                }
-            
+                string job = cbxJob.Text;
+                string id = idStaff.ToString();
+                MySqlCommand updadeCMD = new MySqlCommand($"UPDATE `job` SET `job_end_date`=NOW() WHERE stf_id='{id}'", Program.connection.Connection);
+                MySqlCommand cmd = new MySqlCommand($"INSERT INTO `job`(`job_name`, `job_start_date`," +
+                    $"`stf_id`) VALUES ('{job}',NOW(),'{id}')", Program.connection.Connection);
+                updadeCMD.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
+                Close();
 
+                }
         }
     }
 }

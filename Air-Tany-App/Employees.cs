@@ -19,19 +19,18 @@ namespace Air_Tany_App
         }
         private void btnDisplay_Click(object sender, EventArgs e)
         {
-            MySqlDataAdapter req = new MySqlDataAdapter("SELECT	job_id AS ID, `stf`.`stf_lastname` AS `Nom`," +
-                "`stf`.`stf_firstname` AS `Prenom`,"+
-                
-                "`stf`.`stf_username` AS `NonUtilisateur`," +
-                " `stf`.`stf_email` AS `Mail`," +
-                " `job_name` AS ROLE " +
-                "FROM job NATURAL JOIN staff AS stf" +
-                " where" +
-                " `job`.`job_start_date` <= NOW() AND (`job_end_date` >= NOW()" +
-                " OR `job_end_date` IS NULL)" +
-                " ORDER BY " +
-                "`job`.`stf_id` ASC," +
-                "`job_start_date` DESC", Program.connection.Connection);
+            MySqlDataAdapter req = new MySqlDataAdapter($"SELECT `staff`.`stf_id` AS `Id`, " +
+                "`staff`.`stf_lastname` AS `Nom de famille`, " +
+                "`staff`.`stf_firstname` AS `Prénom`, `staff`.`stf_username`" +
+                " AS `Nom d'utilisateur`, `staff`.`stf_email` AS `Adresse e-mail`," +
+                " `job`.`job_name` AS `Rôle`, `job`.`job_start_date` AS `Depuis le`" +
+                " FROM `job` LEFT JOIN `staff` ON `staff`.`stf_id` = `job`.`stf_id`" +
+                " WHERE" +
+                " `job`.`job_start_date` <= NOW() AND ( `job`.`job_end_date` >= NOW() OR" +
+                " `job`.`job_end_date` IS NULL ) GROUP BY `job`.`stf_id`" +
+                " ORDER BY" +
+                " job.job_name ASC," +
+                " `staff`.`stf_lastname` ASC, `staff`.`stf_firstname` ASC", Program.connection.Connection);
             DataTable dt = new DataTable();
             req.Fill(dt); 
             dgvPersonnel.DataSource = dt;
