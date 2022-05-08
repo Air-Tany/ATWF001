@@ -50,7 +50,6 @@ namespace Air_Tany_App
             ModifStaff staff = new ModifStaff(id);
             staff.ShowDialog();
             staff.Dispose();
-            
         }
     }
 }
