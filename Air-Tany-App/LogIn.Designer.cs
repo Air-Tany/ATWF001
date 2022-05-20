@@ -29,6 +29,7 @@ namespace Air_Tany_App
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txbUsername = new System.Windows.Forms.TextBox();
@@ -61,7 +62,7 @@ namespace Air_Tany_App
             // txbUsername
             // 
             this.txbUsername.Location = new System.Drawing.Point(146, 53);
-            this.txbUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txbUsername.Name = "txbUsername";
             this.txbUsername.Size = new System.Drawing.Size(343, 20);
             this.txbUsername.TabIndex = 2;
@@ -69,7 +70,7 @@ namespace Air_Tany_App
             // txbPassword
             // 
             this.txbPassword.Location = new System.Drawing.Point(146, 106);
-            this.txbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.Size = new System.Drawing.Size(343, 20);
             this.txbPassword.TabIndex = 3;
@@ -78,7 +79,7 @@ namespace Air_Tany_App
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(34, 193);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(94, 19);
             this.btnCancel.TabIndex = 5;
@@ -89,7 +90,7 @@ namespace Air_Tany_App
             // btnConnect
             // 
             this.btnConnect.Location = new System.Drawing.Point(391, 193);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(2);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(98, 19);
             this.btnConnect.TabIndex = 6;
@@ -101,7 +102,7 @@ namespace Air_Tany_App
             // 
             this.cbxStayLogIn.AutoSize = true;
             this.cbxStayLogIn.Location = new System.Drawing.Point(34, 150);
-            this.cbxStayLogIn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxStayLogIn.Margin = new System.Windows.Forms.Padding(2);
             this.cbxStayLogIn.Name = "cbxStayLogIn";
             this.cbxStayLogIn.Size = new System.Drawing.Size(116, 17);
             this.cbxStayLogIn.TabIndex = 4;
@@ -123,7 +124,8 @@ namespace Air_Tany_App
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(525, 294);
             this.MinimumSize = new System.Drawing.Size(525, 294);
             this.Name = "LogIn";

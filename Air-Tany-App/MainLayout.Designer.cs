@@ -29,6 +29,7 @@ namespace Air_Tany_App
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainLayout));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.MnuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.OptConnect = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,14 +83,14 @@ namespace Air_Tany_App
             // OptConnect
             // 
             this.OptConnect.Name = "OptConnect";
-            this.OptConnect.Size = new System.Drawing.Size(180, 22);
+            this.OptConnect.Size = new System.Drawing.Size(153, 22);
             this.OptConnect.Text = "Connexion";
             this.OptConnect.Click += new System.EventHandler(this.OptConnect_Click);
             // 
             // OptDeconnect
             // 
             this.OptDeconnect.Name = "OptDeconnect";
-            this.OptDeconnect.Size = new System.Drawing.Size(180, 22);
+            this.OptDeconnect.Size = new System.Drawing.Size(153, 22);
             this.OptDeconnect.Text = "Déconnexion";
             this.OptDeconnect.Click += new System.EventHandler(this.OptDeconnect_Click);
             // 
@@ -97,7 +98,7 @@ namespace Air_Tany_App
             // 
             this.OptExit.Name = "OptExit";
             this.OptExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.OptExit.Size = new System.Drawing.Size(180, 22);
+            this.OptExit.Size = new System.Drawing.Size(153, 22);
             this.OptExit.Text = "Quitter";
             this.OptExit.Click += new System.EventHandler(this.OptExit_Click);
             // 
@@ -119,7 +120,7 @@ namespace Air_Tany_App
             // Cours
             // 
             this.Cours.Name = "Cours";
-            this.Cours.Size = new System.Drawing.Size(180, 22);
+            this.Cours.Size = new System.Drawing.Size(105, 22);
             this.Cours.Text = "Cours";
             this.Cours.Click += new System.EventHandler(this.Cours_Click);
             // 
@@ -195,6 +196,7 @@ namespace Air_Tany_App
             this.ClientSize = new System.Drawing.Size(534, 294);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(550, 200);
             this.Name = "MainLayout";

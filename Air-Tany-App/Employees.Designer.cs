@@ -29,6 +29,7 @@ namespace Air_Tany_App
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employees));
             this.btnDisplay = new System.Windows.Forms.Button();
             this.dgvPersonnel = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonnel)).BeginInit();
@@ -68,6 +69,7 @@ namespace Air_Tany_App
             this.ClientSize = new System.Drawing.Size(724, 366);
             this.Controls.Add(this.dgvPersonnel);
             this.Controls.Add(this.btnDisplay);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Employees";
             this.Text = "Employees";

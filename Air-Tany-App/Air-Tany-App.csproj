@@ -141,5 +141,9 @@
       <Name>Air-Tany-Lib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="res\img\airtany.ico" />
+    <Content Include="res\img\airtany.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
