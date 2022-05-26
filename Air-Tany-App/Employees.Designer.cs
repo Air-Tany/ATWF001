@@ -29,6 +29,7 @@ namespace Air_Tany_App
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employees));
             this.btnDisplay = new System.Windows.Forms.Button();
             this.dgvPersonnel = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonnel)).BeginInit();
@@ -37,7 +38,7 @@ namespace Air_Tany_App
             // btnDisplay
             // 
             this.btnDisplay.Location = new System.Drawing.Point(6, 10);
-            this.btnDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.btnDisplay.Name = "btnDisplay";
             this.btnDisplay.Size = new System.Drawing.Size(114, 24);
             this.btnDisplay.TabIndex = 1;
@@ -52,12 +53,13 @@ namespace Air_Tany_App
             this.dgvPersonnel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPersonnel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersonnel.Location = new System.Drawing.Point(143, 9);
-            this.dgvPersonnel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPersonnel.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPersonnel.Name = "dgvPersonnel";
             this.dgvPersonnel.RowHeadersWidth = 51;
             this.dgvPersonnel.RowTemplate.Height = 24;
             this.dgvPersonnel.Size = new System.Drawing.Size(526, 346);
             this.dgvPersonnel.TabIndex = 2;
+            this.dgvPersonnel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPersonnel_CellContentClick);
             this.dgvPersonnel.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPersonnel_RowHeaderMouseDoubleClick);
             // 
             // Employees
@@ -67,7 +69,8 @@ namespace Air_Tany_App
             this.ClientSize = new System.Drawing.Size(724, 366);
             this.Controls.Add(this.dgvPersonnel);
             this.Controls.Add(this.btnDisplay);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Employees";
             this.Text = "Employees";
             this.Load += new System.EventHandler(this.Employees_Load);

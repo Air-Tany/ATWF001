@@ -50,5 +50,10 @@ namespace Air_Tany_App
             staff.ShowDialog();
             staff.Dispose();
         }
+
+        private void dgvPersonnel_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

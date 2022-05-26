@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModifStaff));
             this.Sup = new System.Windows.Forms.Button();
             this.Modify = new System.Windows.Forms.Button();
             this.cbxJob = new System.Windows.Forms.ComboBox();
@@ -38,7 +39,7 @@
             this.Sup.BackColor = System.Drawing.Color.Red;
             this.Sup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Sup.Location = new System.Drawing.Point(21, 132);
-            this.Sup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Sup.Margin = new System.Windows.Forms.Padding(2);
             this.Sup.Name = "Sup";
             this.Sup.Size = new System.Drawing.Size(108, 40);
             this.Sup.TabIndex = 0;
@@ -51,7 +52,7 @@
             this.Modify.BackColor = System.Drawing.Color.ForestGreen;
             this.Modify.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Modify.Location = new System.Drawing.Point(175, 132);
-            this.Modify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Modify.Margin = new System.Windows.Forms.Padding(2);
             this.Modify.Name = "Modify";
             this.Modify.Size = new System.Drawing.Size(101, 40);
             this.Modify.TabIndex = 1;
@@ -67,7 +68,7 @@
             "Responsable",
             "Trader"});
             this.cbxJob.Location = new System.Drawing.Point(21, 74);
-            this.cbxJob.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxJob.Margin = new System.Windows.Forms.Padding(2);
             this.cbxJob.Name = "cbxJob";
             this.cbxJob.Size = new System.Drawing.Size(255, 21);
             this.cbxJob.TabIndex = 18;
@@ -80,7 +81,8 @@
             this.Controls.Add(this.cbxJob);
             this.Controls.Add(this.Modify);
             this.Controls.Add(this.Sup);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ModifStaff";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ModifStaff";

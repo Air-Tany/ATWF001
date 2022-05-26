@@ -29,6 +29,7 @@ namespace Air_Tany_App
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txbUsername = new System.Windows.Forms.TextBox();
@@ -41,40 +42,46 @@ namespace Air_Tany_App
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(121, 65);
+            this.lblUsername.Location = new System.Drawing.Point(31, 53);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(121, 17);
+            this.lblUsername.Size = new System.Drawing.Size(90, 13);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Nom d\'utilisateur :";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(121, 139);
+            this.lblPassword.Location = new System.Drawing.Point(31, 109);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(77, 17);
+            this.lblPassword.Size = new System.Drawing.Size(59, 13);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password :";
             // 
             // txbUsername
             // 
-            this.txbUsername.Location = new System.Drawing.Point(306, 65);
+            this.txbUsername.Location = new System.Drawing.Point(146, 53);
+            this.txbUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txbUsername.Name = "txbUsername";
-            this.txbUsername.Size = new System.Drawing.Size(456, 22);
+            this.txbUsername.Size = new System.Drawing.Size(343, 20);
             this.txbUsername.TabIndex = 2;
             // 
             // txbPassword
             // 
-            this.txbPassword.Location = new System.Drawing.Point(270, 134);
+            this.txbPassword.Location = new System.Drawing.Point(146, 106);
+            this.txbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.Size = new System.Drawing.Size(456, 22);
+            this.txbPassword.Size = new System.Drawing.Size(343, 20);
             this.txbPassword.TabIndex = 3;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(124, 355);
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(34, 193);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(126, 23);
+            this.btnCancel.Size = new System.Drawing.Size(94, 19);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -82,9 +89,10 @@ namespace Air_Tany_App
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(559, 355);
+            this.btnConnect.Location = new System.Drawing.Point(391, 193);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(2);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(130, 23);
+            this.btnConnect.Size = new System.Drawing.Size(98, 19);
             this.btnConnect.TabIndex = 6;
             this.btnConnect.Text = "Connexion";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -93,18 +101,21 @@ namespace Air_Tany_App
             // cbxStayLogIn
             // 
             this.cbxStayLogIn.AutoSize = true;
-            this.cbxStayLogIn.Location = new System.Drawing.Point(320, 213);
+            this.cbxStayLogIn.Location = new System.Drawing.Point(34, 150);
+            this.cbxStayLogIn.Margin = new System.Windows.Forms.Padding(2);
             this.cbxStayLogIn.Name = "cbxStayLogIn";
-            this.cbxStayLogIn.Size = new System.Drawing.Size(151, 21);
+            this.cbxStayLogIn.Size = new System.Drawing.Size(116, 17);
             this.cbxStayLogIn.TabIndex = 4;
             this.cbxStayLogIn.Text = "Se souvenir de moi";
             this.cbxStayLogIn.UseVisualStyleBackColor = true;
             // 
             // LogIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AcceptButton = this.btnConnect;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(509, 255);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cbxStayLogIn);
@@ -112,6 +123,11 @@ namespace Air_Tany_App
             this.Controls.Add(this.txbUsername);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(525, 294);
+            this.MinimumSize = new System.Drawing.Size(525, 294);
             this.Name = "LogIn";
             this.Text = "LogIn";
             this.Load += new System.EventHandler(this.LogIn_Load_1);
