@@ -44,6 +44,7 @@ namespace Air_Tany_App
             this.OptCreateTables = new System.Windows.Forms.ToolStripMenuItem();
             this.OptFillTables = new System.Windows.Forms.ToolStripMenuItem();
             this.créerUnUtilisateurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.budgetTrd = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsslLogIn = new System.Windows.Forms.ToolStripStatusLabel();
@@ -140,6 +141,7 @@ namespace Air_Tany_App
             // 
             this.MnuAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.OptCreateTables,
+            this.budgetTrd,
             this.OptFillTables,
             this.créerUnUtilisateurToolStripMenuItem});
             this.MnuAdmin.Name = "MnuAdmin";
@@ -165,6 +167,13 @@ namespace Air_Tany_App
             this.créerUnUtilisateurToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.créerUnUtilisateurToolStripMenuItem.Text = "Créer un utilisateur...";
             this.créerUnUtilisateurToolStripMenuItem.Click += new System.EventHandler(this.créerUnUtilisateurToolStripMenuItem_Click);
+            // 
+            // budgetTrd
+            // 
+            this.budgetTrd.Name = "budgetTrd";
+            this.budgetTrd.Size = new System.Drawing.Size(183, 22);
+            this.budgetTrd.Text = "Budget Trader";
+            this.budgetTrd.Click += new System.EventHandler(this.budgetTrds);
             // 
             // MnuAbout
             // 
@@ -230,6 +239,7 @@ namespace Air_Tany_App
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tsslLogIn;
         private System.Windows.Forms.ToolStripMenuItem Cours;
+        private System.Windows.Forms.ToolStripMenuItem budgetTrd;
     }
 }
 

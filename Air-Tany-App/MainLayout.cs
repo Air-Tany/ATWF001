@@ -117,5 +117,32 @@ namespace Air_Tany_App
             csvDB.CSV(Path.Combine(Program.appPath, @"\res\csv\libelles.csv"));
             
         }
+
+        private void budgetTraderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void budgetTrds(object sender, EventArgs e)
+        {
+            BudgetTrd form = new BudgetTrd();
+            form.ShowDialog();
+        }
+
+        private void MnuDocuments_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MnuAdmin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MnuOperations_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
