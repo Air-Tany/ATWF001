@@ -107,6 +107,16 @@ namespace Air_Tany_Lib
             }
         }
 
+        public static float? GetBudget(int id, DBConn Conn)
+        {
+            MySqlCommand req = new MySqlCommand($"SELECT `trd_budget` FROM `trader` WHERE `trader`.`stf_id` = '{id}' AND " +
+                $"(`trader`.`trd_start_date` <= NOW()) AND (`trader`.`trd_end_date` >= NOW() OR `trader`.`trd_end_date` IS NULL) " +
+                $"ORDER BY `trader`.`trd_start_date` DESC LIMIT 1", Conn.Connection);
+            float res = (float)req.ExecuteScalar();
+            return res;
+        }
+
+
 
 
     }

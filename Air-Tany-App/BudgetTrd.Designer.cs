@@ -40,6 +40,7 @@
             this.DtgBudget.Size = new System.Drawing.Size(542, 426);
             this.DtgBudget.TabIndex = 0;
             this.DtgBudget.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgBudget_CellContentClick);
+            this.DtgBudget.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.AddBudget);
             // 
             // BudgetTrd
             // 

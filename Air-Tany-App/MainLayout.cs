@@ -97,18 +97,21 @@ namespace Air_Tany_App
         {
             SignUpUser form = new SignUpUser();
             form.ShowDialog();
+            form.Dispose();
         }
 
         private void MnuStaff_Click(object sender, EventArgs e)
         {
             Employees form = new Employees();
             form.ShowDialog();
+            form.Dispose();
         }
 
         private void Cours_Click(object sender, EventArgs e)
         {
             Stock form =new Stock();
             form.ShowDialog();
+            form.Dispose();
         }
 
         private void OptFillTables_Click(object sender, EventArgs e)
@@ -125,6 +128,7 @@ namespace Air_Tany_App
         {
             BudgetTrd form = new BudgetTrd();
             form.ShowDialog();
+            form.Dispose();
         }
 
         private void MnuDocuments_Click(object sender, EventArgs e)
