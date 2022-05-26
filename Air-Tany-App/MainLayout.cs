@@ -115,13 +115,10 @@ namespace Air_Tany_App
         {
             Console.WriteLine(Program.appPath);
             csvDB.CSV(Path.Combine(Program.appPath, @"\res\csv\libelles.csv"));
-            
         }
 
         private void budgetTraderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-
         }
 
         private void budgetTrds(object sender, EventArgs e)
@@ -132,7 +129,7 @@ namespace Air_Tany_App
 
         private void MnuDocuments_Click(object sender, EventArgs e)
         {
-
+        
         }
 
         private void MnuAdmin_Click(object sender, EventArgs e)
