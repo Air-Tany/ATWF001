@@ -13,6 +13,7 @@ using System.Net;
 using System.Configuration;
 using System.IO;
 using Air_Tany_Lib;
+using MySql.Data.MySqlClient;
 
 namespace Air_Tany_App
 {
@@ -47,6 +48,11 @@ namespace Air_Tany_App
         public OperationTime()
         {
             InitializeComponent();
+            Refresh();
+        }
+
+        public void Refresh()
+        {
             GetAction();
             GetPortfolio();
         }
@@ -91,16 +97,23 @@ namespace Air_Tany_App
         {
             UserInfo user = Common.GetUserInfo(Program.connection, Program.sessionToken);
             budgetTotal.Text = Common.GetBudget(user.id, Program.connection).ToString();
+
+            MySqlDataAdapter req = new MySqlDataAdapter($"SELECT `action`.`act_name` AS `Action`, `action`.`act_isin` AS `ISIN`, `action`.`act_ticker` AS `Ticker`, SUM(`portfolio_stock`.`prt_quantity`) AS `Quantité possédée` " +
+                $"FROM `portfolio_stock` JOIN `action` ON `portfolio_stock`.`act_id` = `action`.`act_id` WHERE `portfolio_stock`.`stf_id` = '{user.id}' " +
+                $"GROUP BY `portfolio_stock`.`act_id`", Program.connection.Connection);
+            DataTable dt = new DataTable();
+            req.Fill(dt);
+            dtgOperation.DataSource = dt;
         }
 
         private void dtgTitre_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            string ticker = dtgTitre.Rows[e.RowIndex].Cells[2].Value.ToString();
             string isin = dtgTitre.Rows[e.RowIndex].Cells[1].Value.ToString(); 
             float price = float.Parse(dtgTitre.Rows[e.RowIndex].Cells[3].Value.ToString());
             BuyAction form = new BuyAction(isin, price);
             form.ShowDialog();
             form.Dispose();
+            Refresh();
         }
 
         private void dtgTitre_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -45,6 +45,11 @@ namespace Air_Tany_App
             {
                 MySqlCommand q = new MySqlCommand($"INSERT INTO job (`job_name`, `job_start_date`, `job_end_date`, `stf_id`) VALUES ('{job}', '{start_date.ToUniversalTime().ToString("s")}', {(cbxEndDate.Checked ? $"'{end_date.ToUniversalTime().ToString("s")}'" : "NULL")}, '{res}')", Program.connection.Connection);
                 q.ExecuteNonQuery();
+                if (job == "Trader")
+                {
+                    MySqlCommand q2 = new MySqlCommand($"INSERT INTO `trader` (`trd_start_date`, `trd_budget`, `stf_id`) VALUES (NOW(), '0', '{res}')", Program.connection.Connection);
+                    q2.ExecuteNonQuery();
+                }
                 MessageBox.Show(password);
             }
             Close();

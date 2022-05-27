@@ -34,8 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtgTitre = new System.Windows.Forms.DataGridView();
             this.dtgOperation = new System.Windows.Forms.DataGridView();
-            this.mntPort = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTitre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgOperation)).BeginInit();
             this.SuspendLayout();
@@ -102,31 +100,11 @@
             this.dtgOperation.Size = new System.Drawing.Size(577, 313);
             this.dtgOperation.TabIndex = 14;
             // 
-            // mntPort
-            // 
-            this.mntPort.AutoSize = true;
-            this.mntPort.Location = new System.Drawing.Point(191, 445);
-            this.mntPort.Name = "mntPort";
-            this.mntPort.Size = new System.Drawing.Size(13, 13);
-            this.mntPort.TabIndex = 23;
-            this.mntPort.Text = "0";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(63, 445);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 13);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Montant du Portefeuille :";
-            // 
             // OperationTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1293, 533);
-            this.Controls.Add(this.mntPort);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.budgetTotal);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -150,7 +128,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgTitre;
         private System.Windows.Forms.DataGridView dtgOperation;
-        private System.Windows.Forms.Label mntPort;
-        private System.Windows.Forms.Label label5;
     }
 }

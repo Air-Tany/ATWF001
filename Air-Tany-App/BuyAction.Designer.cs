@@ -84,6 +84,7 @@
             this.Controls.Add(this.label1);
             this.Name = "BuyAction";
             this.Text = "Achat d\'actions";
+            this.Load += new System.EventHandler(this.BuyAction_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudBuy)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
