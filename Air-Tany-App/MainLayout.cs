@@ -33,6 +33,7 @@ namespace Air_Tany_App
         {
             LogIn connectionForm = new LogIn();
             connectionForm.ShowDialog();
+            connectionForm.Dispose();
             if (!string.IsNullOrEmpty(Program.sessionToken))
             {
                 UserInfo userInfo = Common.GetUserInfo(Program.connection, Program.sessionToken);
@@ -73,16 +74,26 @@ namespace Air_Tany_App
             {
                 UserInfo user = Common.GetUserInfo(Program.connection, Program.sessionToken);
                 string job = Common.GetJob(user.id, Program.connection);
+                Console.WriteLine(job);
                 switch (job)
                 {
                     case "Administrateur":
                         MnuAdmin.Visible = true;
                         MnuStaff.Visible = true;
+                        MnuOperations.Visible = true;
                         break;
+
+                    case "Trader":
+                        MnuOperations.Visible= true;
+                        MnuAdmin.Visible = false;
+                        MnuStaff.Visible = false;
+                        break;
+
                         
                     default:
                         MnuAdmin.Visible = false;
                         MnuStaff.Visible = false;
+                        MnuOperations.Visible=false;
                         break;
                 }
             }
@@ -90,8 +101,10 @@ namespace Air_Tany_App
             {
                 MnuAdmin.Visible = false;
                 MnuStaff.Visible = false;
+                MnuOperations.Visible = false;
             }
         }
+       
 
         private void créerUnUtilisateurToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -143,7 +156,9 @@ namespace Air_Tany_App
 
         private void MnuOperations_Click(object sender, EventArgs e)
         {
-
+            OperationTime form = new OperationTime();
+            form.ShowDialog();
+            form.Dispose();
         }
     }
 }

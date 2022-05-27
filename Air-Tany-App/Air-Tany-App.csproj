@@ -61,6 +61,18 @@
     <Compile Include="BudgetTrd.Designer.cs">
       <DependentUpon>BudgetTrd.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuyAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuyAction.Designer.cs">
+      <DependentUpon>BuyAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OperationTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationTime.Designer.cs">
+      <DependentUpon>OperationTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +120,9 @@
     <EmbeddedResource Include="BudgetTrd.resx">
       <DependentUpon>BudgetTrd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BuyAction.resx">
+      <DependentUpon>BuyAction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employees.resx">
       <DependentUpon>Employees.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModifStaff.resx">
       <DependentUpon>ModifStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperationTime.resx">
+      <DependentUpon>OperationTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

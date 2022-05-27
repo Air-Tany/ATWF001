@@ -42,9 +42,9 @@ namespace Air_Tany_App
             this.MnuDocuments = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.OptCreateTables = new System.Windows.Forms.ToolStripMenuItem();
+            this.budgetTrd = new System.Windows.Forms.ToolStripMenuItem();
             this.OptFillTables = new System.Windows.Forms.ToolStripMenuItem();
             this.créerUnUtilisateurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.budgetTrd = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsslLogIn = new System.Windows.Forms.ToolStripStatusLabel();
@@ -130,6 +130,7 @@ namespace Air_Tany_App
             this.MnuOperations.Name = "MnuOperations";
             this.MnuOperations.Size = new System.Drawing.Size(77, 20);
             this.MnuOperations.Text = "Opérations";
+            this.MnuOperations.Click += new System.EventHandler(this.MnuOperations_Click);
             // 
             // MnuDocuments
             // 
@@ -154,6 +155,13 @@ namespace Air_Tany_App
             this.OptCreateTables.Size = new System.Drawing.Size(183, 22);
             this.OptCreateTables.Text = "Création des tables";
             // 
+            // budgetTrd
+            // 
+            this.budgetTrd.Name = "budgetTrd";
+            this.budgetTrd.Size = new System.Drawing.Size(183, 22);
+            this.budgetTrd.Text = "Budget Trader";
+            this.budgetTrd.Click += new System.EventHandler(this.budgetTrds);
+            // 
             // OptFillTables
             // 
             this.OptFillTables.Name = "OptFillTables";
@@ -167,13 +175,6 @@ namespace Air_Tany_App
             this.créerUnUtilisateurToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.créerUnUtilisateurToolStripMenuItem.Text = "Créer un utilisateur...";
             this.créerUnUtilisateurToolStripMenuItem.Click += new System.EventHandler(this.créerUnUtilisateurToolStripMenuItem_Click);
-            // 
-            // budgetTrd
-            // 
-            this.budgetTrd.Name = "budgetTrd";
-            this.budgetTrd.Size = new System.Drawing.Size(183, 22);
-            this.budgetTrd.Text = "Budget Trader";
-            this.budgetTrd.Click += new System.EventHandler(this.budgetTrds);
             // 
             // MnuAbout
             // 

@@ -43,7 +43,7 @@ namespace Air_Tany_App
             int res = (int)(UInt64)signup.ExecuteScalar();
             if (res != -1)
             {
-                MySqlCommand q = new MySqlCommand($"INSERT INTO job (`job_name`, `job_start_date`, `job_end_date`, `stf_id`) VALUES ('{job}', '{start_date.ToString("s")}', {(cbxEndDate.Checked ? $"'{end_date.ToString("s")}'" : "NULL")}, '{res}')", Program.connection.Connection);
+                MySqlCommand q = new MySqlCommand($"INSERT INTO job (`job_name`, `job_start_date`, `job_end_date`, `stf_id`) VALUES ('{job}', '{start_date.ToUniversalTime().ToString("s")}', {(cbxEndDate.Checked ? $"'{end_date.ToUniversalTime().ToString("s")}'" : "NULL")}, '{res}')", Program.connection.Connection);
                 q.ExecuteNonQuery();
                 MessageBox.Show(password);
             }
