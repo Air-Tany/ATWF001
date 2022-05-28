@@ -99,6 +99,7 @@ namespace Air_Tany_Lib
             string res = (string)req.ExecuteScalar();
             if (!string.IsNullOrEmpty(res))
             {
+
                 return res;
             }
             else
