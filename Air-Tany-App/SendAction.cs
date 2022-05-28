@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Air_Tany_Lib;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,55 +9,58 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Air_Tany_Lib;
 
 namespace Air_Tany_App
 {
-    public partial class BuyAction : Form
+    public partial class SendAction : Form
     {
         string _isin;
-        float _price;
-        public BuyAction(string isin, float price)
+        
+        public SendAction(string isin)
         {
             InitializeComponent();
             _isin = isin;
-            _price = price;
-
+           
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            int quantity = (int)nudBuy.Value;
-            float totalPrice = quantity * _price;
-            DialogResult dr = MessageBox.Show($"valider l'achat de {totalPrice}€ ",
+            int price = 20;
+            int quantity = (int)nudSend.Value;
+            Console.WriteLine("isin =");
+            Console.WriteLine(_isin);
+            UserInfo user = Common.GetUserInfo(Program.connection, Program.sessionToken);
+            int _qte = Common.GetQuantity(user.id, _isin, Program.connection);
+            int newQuantity = _qte - quantity ;
+            DialogResult dr = MessageBox.Show($"Voulez-vous valider la vente de {quantity} action ? ",
                    "Message de confirmation",
                    MessageBoxButtons.YesNoCancel,
                    MessageBoxIcon.Information);
 
             if (dr == DialogResult.Yes)
             {
-                UserInfo user = Common.GetUserInfo(Program.connection ,Program.sessionToken);
-                float budget = Common.GetBudget(user.id, Program.connection);
-                if (budget < totalPrice)
+                
+                
+                if (_qte < quantity)
                 {
-                    MessageBox.Show("budget insuffisant",
+                    MessageBox.Show($"vous ne possedez que {_qte} action",
                    "Erreur",
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
                 }
                 else
                 {
-                    float newBudget = budget - totalPrice;  
+                    float budget = Common.GetBudget(user.id, Program.connection);
+                    float newBudget = quantity * price + budget;
                     MySqlTransaction transaction = Program.connection.Connection.BeginTransaction();
-                   
+
                     MySqlCommand cmd = Program.connection.Connection.CreateCommand();
                     cmd.Transaction = transaction;
 
                     try
                     {
-                        Console.WriteLine(_isin);
-                        Console.WriteLine(_price);
-                        string sql1 = $"INSERT INTO `operation` (`op_date`, `op_quantity`, `stf_id`, `act_id`, `op_price`) SELECT NOW(), '{Convert.ToSingle(quantity)}', '{user.id}', `act_id`, '{Convert.ToSingle(_price)}' FROM `action` WHERE `action`.`act_isin` = '{_isin}'";
+                        
+                        string sql1 = $"INSERT INTO `operation` (`op_date`, `op_quantity`, `stf_id`, `act_id`, `op_price`) SELECT NOW(), '-{Convert.ToSingle(quantity)}', '{user.id}', `act_id`, '{price}' FROM `action` WHERE `action`.`act_isin` = '{_isin}'";
 
                         cmd.CommandText = sql1;
                         cmd.ExecuteNonQuery();
@@ -88,15 +92,21 @@ namespace Air_Tany_App
                         cmd.ExecuteNonQuery();
                         Console.WriteLine("sql5 ok");
 
-                        string sql6 = $"INSERT INTO `portfolio_stock` (`stf_id`, `act_id`, `prt_quantity`) SELECT '{user.id}', `act_id`, '{Convert.ToSingle(oldQuantity + quantity)}' FROM `action` WHERE `action`.`act_isin` = '{_isin}'";
+                        string sql6 = $"INSERT INTO `portfolio_stock` (`stf_id`, `act_id`, `prt_quantity`) SELECT '{user.id}', `act_id`, '{Convert.ToSingle(newQuantity)}' FROM `action` WHERE `action`.`act_isin` = '{_isin}'";
 
                         cmd.CommandText = sql6;
                         cmd.ExecuteNonQuery();
                         Console.WriteLine("sql6 ok");
 
+                        string sql7 = $"DELETE FROM `portfolio_stock` WHERE portfolio_stock.prt_quantity <= '0'";
+
+                        cmd.CommandText = sql7;
+                        cmd.ExecuteNonQuery();
+                        Console.WriteLine("sql7 ok");
+
                         transaction.Commit();
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
                         transaction.Rollback();
@@ -110,17 +120,7 @@ namespace Air_Tany_App
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            Close();
-        }
-
-        private void BuyAction_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+               Close();
         }
     }
 }

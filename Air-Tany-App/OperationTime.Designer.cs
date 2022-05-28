@@ -46,7 +46,6 @@
             this.budgetTotal.Size = new System.Drawing.Size(13, 13);
             this.budgetTotal.TabIndex = 21;
             this.budgetTotal.Text = "0";
-            this.budgetTotal.Click += new System.EventHandler(this.budgetTotal_Click);
             // 
             // label4
             // 
@@ -87,7 +86,6 @@
             this.dtgTitre.RowTemplate.Height = 24;
             this.dtgTitre.Size = new System.Drawing.Size(584, 313);
             this.dtgTitre.TabIndex = 15;
-            this.dtgTitre.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgTitre_CellContentClick);
             this.dtgTitre.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgTitre_RowHeaderMouseDoubleClick);
             // 
             // dtgOperation
@@ -99,6 +97,7 @@
             this.dtgOperation.RowTemplate.Height = 24;
             this.dtgOperation.Size = new System.Drawing.Size(577, 313);
             this.dtgOperation.TabIndex = 14;
+            this.dtgOperation.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgOperation_RowHeaderMouseDoubleClick);
             // 
             // OperationTime
             // 
@@ -113,7 +112,6 @@
             this.Controls.Add(this.dtgOperation);
             this.Name = "OperationTime";
             this.Text = "OperationTime";
-            this.Load += new System.EventHandler(this.OperationTime_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgTitre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgOperation)).EndInit();
             this.ResumeLayout(false);

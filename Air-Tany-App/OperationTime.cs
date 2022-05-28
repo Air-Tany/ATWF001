@@ -116,19 +116,14 @@ namespace Air_Tany_App
             Refresh();
         }
 
-        private void dtgTitre_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
-
-        private void budgetTotal_Click(object sender, EventArgs e)
+        private void dtgOperation_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
-        }
-
-        private void OperationTime_Load(object sender, EventArgs e)
-        {
-           
+            string isin = dtgTitre.Rows[e.RowIndex].Cells[1].Value.ToString();
+            SendAction form = new SendAction(isin);
+            form.ShowDialog();
+            form.Dispose();
+            Refresh();
         }
     }
 }

@@ -73,6 +73,12 @@
     <Compile Include="OperationTime.Designer.cs">
       <DependentUpon>OperationTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="SendAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendAction.Designer.cs">
+      <DependentUpon>SendAction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SendAction.resx">
+      <DependentUpon>SendAction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignUpUser.resx">
       <DependentUpon>SignUpUser.cs</DependentUpon>
     </EmbeddedResource>

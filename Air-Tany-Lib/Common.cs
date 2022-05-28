@@ -118,9 +118,15 @@ namespace Air_Tany_Lib
             float res = (float)req.ExecuteScalar();
             return res;
         }
-
-
-
+        public static int GetQuantity(int id, string isin, DBConn Conn)
+        {
+            MySqlCommand req1 = new MySqlCommand($"SELECT act_id FROM `action` WHERE act_isin = '{isin}'", Conn.Connection);
+            int res1 = (int)req1.ExecuteScalar();
+            MySqlCommand req2 = new MySqlCommand($"SELECT `prt_quantity` FROM `portfolio_stock` WHERE `portfolio_stock`.`stf_id` = '{id}' AND " +
+                $"`portfolio_stock`.`act_id` = '{res1}'", Conn.Connection);
+            int res2 = (int)req2.ExecuteScalar();
+            return res2;
+        }
 
     }
 }
