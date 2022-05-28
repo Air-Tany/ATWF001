@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using MySql.Data.MySqlClient;
 
+/* lire des données à partir d'un fichier csv(tabler qu'on lire en code) */
+
 namespace Air_Tany_Lib
 {
     public class csvDB

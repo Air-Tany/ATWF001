@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 
+/*classe, fonctions/méthodes utilisées dans l'appli */
+
 namespace Air_Tany_Lib
 {
     static public class Common
     {
         static public string rdmString(int length = 16, string charList = "0123456789abcdefghijklmnopqrstuvwxyz")
+            /* métode permettant de générer une chaîne de caractères aléatoire, de longueur et incluant les caractères 
+             * passés en paramètre*/
         {
             char[] result = new char[length];
             Random rand = new Random();
@@ -20,11 +24,19 @@ namespace Air_Tany_Lib
                 result[i] = charList[pos];
             }
             return new String(result);
-            
+            /* créé une liste de caractères de longueur "lenght" 
+            créé un objet "random" permettant de générer des éléménets aléatoires 
+            boucle, création d'une variable i égale à 0, boucle se répéte allant de 0 à la longueur -1, rajoutant 1 à i
+            création d'une variable pos qui appelle la méthode next de l'objet rand, méthode renvoie un nb entier aléatoire
+            entre 0 et le nb passé en paramètre 
+            dans la liste result à la position i, on attribue le caractère de la liste charlist se trouvant à la position pos
+            retourne liste result en string
+            */
 
         }
 
         static public int? checkUserCredentials(string UserName, string PasswordHash, DBConn Conn) // le ? peut etre nul 
+        /* méthode permettant de vérifier qu'un compte correspond au username et au password passés en paramètre */
         {
             MySqlCommand cmd = new MySqlCommand($"SELECT `stf_id` FROM `staff` WHERE `stf_username` = '{UserName}' AND `stf_password` = '{PasswordHash}'", Conn.Connection);
             try
@@ -39,6 +51,7 @@ namespace Air_Tany_Lib
         }
 
         static public string createSessionToken(int? Uid, DBConn Conn)
+           /*métode permettant de créer jeton de connexion lié à l'id de l'utilisateur passé en paramètre */
         {
 
             if (Uid != null)
@@ -63,6 +76,7 @@ namespace Air_Tany_Lib
         }
 
         public static string SHA512(string input)
+            /*méthode permettant de hacher le message passé en paramètre avec la fonction SHA512*/
         {
             var bytes = System.Text.Encoding.UTF8.GetBytes(input);
             using (var hash = System.Security.Cryptography.SHA512.Create())
@@ -77,6 +91,8 @@ namespace Air_Tany_Lib
         }
 
         public static UserInfo GetUserInfo(DBConn Conn, string TK)
+            /* A partir du token/jeton de session passé en paramètre, la mèthode retourne les infos de l'utilisateur
+             relié au jeton*/
         {
             MySqlCommand cmd = new MySqlCommand($"SELECT `stf_id`, `stf_lastname`, `stf_firstname`, " +
                 $"`stf_username`, `stf_email` FROM `session_token` NATURAL JOIN `staff` WHERE session_token.stk_token = '{TK}'", Conn.Connection);
@@ -92,6 +108,7 @@ namespace Air_Tany_Lib
         }
 
         public static string GetJob(int id, DBConn Conn)
+            /* cette méthode retourne le job actuel de l'utilisateur à partir de son id passé en paramètre */
         {
             MySqlCommand req = new MySqlCommand($"SELECT `job_name` FROM `job` WHERE `job`.`stf_id` = '{id}' AND " +
                 $"(`job`.`job_start_date` <= NOW()) AND (`job`.`job_end_date` >= NOW() OR `job`.`job_end_date` IS NULL) " +
@@ -111,6 +128,7 @@ namespace Air_Tany_Lib
         }
 
         public static float GetBudget(int id, DBConn Conn)
+            /* méthode permettant de récuperer le budget du trader à partir de son id passé en paramètre */
         {
             MySqlCommand req = new MySqlCommand($"SELECT `trd_budget` FROM `trader` WHERE `trader`.`stf_id` = '{id}' AND " +
                 $"(`trader`.`trd_start_date` <= NOW()) AND (`trader`.`trd_end_date` >= NOW() OR `trader`.`trd_end_date` IS NULL) " +

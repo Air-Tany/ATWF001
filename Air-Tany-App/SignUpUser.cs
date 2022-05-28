@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Air_Tany_Lib;
 
+//inscription d'un utilisateur 
+
 namespace Air_Tany_App
 {
     public partial class SignUpUser : Form
@@ -19,17 +21,17 @@ namespace Air_Tany_App
             InitializeComponent();
         }
 
-        private void cbxEndDate_CheckedChanged(object sender, EventArgs e)
+        private void cbxEndDate_CheckedChanged(object sender, EventArgs e) //fonction appelé chaque fois que la case a coché change d'état (coché/décoché)
         {
-            dtpEndDate.Enabled = !dtpEndDate.Enabled;
+            dtpEndDate.Enabled = !dtpEndDate.Enabled; //active ou desactive le champs 
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e) //
         {
             Close();
         }
 
-        private void btnValidate_Click(object sender, EventArgs e)
+        private void btnValidate_Click(object sender, EventArgs e) //
         {
             string lastname = txbName.Text;
             string firstname = txbFirstname.Text;

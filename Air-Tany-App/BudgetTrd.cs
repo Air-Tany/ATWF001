@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/* formulaire permet de gerer les budgets des traders */
+
 namespace Air_Tany_App
 {
     public partial class BudgetTrd : Form
@@ -24,6 +26,8 @@ namespace Air_Tany_App
         }
         public void listUser()
         {
+           /* récuperer les traders avec leeur dernier budget */
+
             MySqlDataAdapter req = new MySqlDataAdapter($"SELECT staff.stf_id AS ID ,stf_lastname AS Prénom, " +
                 $"stf_firstname AS Nom, stf_username AS Username, " +
                 $"trd.trd_budget AS Budget FROM staff " +
@@ -47,7 +51,7 @@ namespace Air_Tany_App
             
         }
 
-        private void AddBudget(object sender, DataGridViewCellMouseEventArgs e)
+        private void AddBudget(object sender, DataGridViewCellMouseEventArgs e) // modifier bidget trader, ouvre le formulaire update budget permattant de le modifer
         {
             int id = int.Parse(DtgBudget.Rows[e.RowIndex].Cells[0].Value.ToString());//converti en entier
             UpdateBudget form = new UpdateBudget(id);

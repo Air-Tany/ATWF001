@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+//afficher tous les employés qui sont inscrits 
+
 namespace Air_Tany_App
 {
     public partial class Employees : Form
@@ -17,8 +19,9 @@ namespace Air_Tany_App
         {
             InitializeComponent();
         }
-        private void btnDisplay_Click(object sender, EventArgs e)
+        private void btnDisplay_Click(object sender, EventArgs e) // bouton affichage 
         {
+            //recuperer tous les employés avec leur job actuel 
             MySqlDataAdapter req = new MySqlDataAdapter($"SELECT `staff`.`stf_id` AS `Id`, " +
                 "`staff`.`stf_lastname` AS `Nom de famille`, " +
                 "`staff`.`stf_firstname` AS `Prénom`, `staff`.`stf_username`" +
@@ -44,6 +47,7 @@ namespace Air_Tany_App
         }
 
         private void dgvPersonnel_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        //quand on double clique qur ligne qu'on souhaite modifier / ouvre le formulaire modif staf avec id de l'employé qur lequel on a cliqué 
         {
             int id = int.Parse(dgvPersonnel.Rows[e.RowIndex].Cells[0].Value.ToString());//converti en entier
             ModifStaff staff = new ModifStaff(id);

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/* cette classe content les infos d'un utilisateurs */
+
 namespace Air_Tany_Lib
 {
     public class UserInfo

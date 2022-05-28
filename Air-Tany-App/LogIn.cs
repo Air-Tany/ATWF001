@@ -10,10 +10,13 @@ using System.Windows.Forms;
 using System.Security.Cryptography;
 using Air_Tany_Lib;
 
+//formulaire de connexion utilisateur
+
 namespace Air_Tany_App
 {
     public partial class LogIn : Form
     {
+        //propriétés privés de la classe login (pas accessibles en dehors de cette classe)
         private string _userName;
         private string _passwordHash;
         private bool _stayLogIn;
@@ -23,6 +26,7 @@ namespace Air_Tany_App
          
             InitializeComponent();
         }
+        // pour y avoir acces quand meme - creation d'accesseurs (methode retourne valeur de la propriete)
         public string UserName
         {
             get => _userName;
@@ -43,7 +47,7 @@ namespace Air_Tany_App
 
         }
 
-        private void btnConnect_Click(object sender, EventArgs e)
+        private void btnConnect_Click(object sender, EventArgs e) // clique sur le bouton connexion - appelle la fonction submitform
         {
             submitForm();
         }
@@ -52,26 +56,26 @@ namespace Air_Tany_App
         {
 
         }
-        public void submitForm()
+        public void submitForm() // valider le formulaire 
         {
-            _userName = txbUsername.Text;
-            _passwordHash = Common.SHA512(txbPassword.Text);
-            _stayLogIn = cbxStayLogIn.Checked;
+            _userName = txbUsername.Text; // recupere valeur saisie dans le champs
+            _passwordHash = Common.SHA512(txbPassword.Text); // recuper valeur saisie dans le champs - hachage direct 
+            _stayLogIn = cbxStayLogIn.Checked; // case coché rester connecté 
 
-            int? uid = Common.checkUserCredentials(_userName, _passwordHash, Program.connection);
-            if (uid.HasValue)
+            int? uid = Common.checkUserCredentials(_userName, _passwordHash, Program.connection); // verifie si username et psw sont valides
+            if (uid.HasValue) // si ça existe
             {
-                string TK = Common.createSessionToken(uid, Program.connection);
-                if (TK != null)
+                string TK = Common.createSessionToken(uid, Program.connection); // cree jeton de session
+                if (TK != null) // si jeton créé 
                 {
-                    Program.sessionToken = TK;
+                    Program.sessionToken = TK; // stock le jeton dans program pour le rendre accessible partout dans l'appli
 
                 }
             }
             Close();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e) //fermer formulaire 
         {
             Close();
         }
