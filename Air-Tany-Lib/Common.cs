@@ -107,6 +107,24 @@ namespace Air_Tany_Lib
             }
         }
 
+        public static float GetBudget(int id, DBConn Conn)
+        {
+            MySqlCommand req = new MySqlCommand($"SELECT `trd_budget` FROM `trader` WHERE `trader`.`stf_id` = '{id}' AND " +
+                $"(`trader`.`trd_start_date` <= NOW()) AND (`trader`.`trd_end_date` >= NOW() OR `trader`.`trd_end_date` IS NULL) " +
+                $"ORDER BY `trader`.`trd_start_date` DESC LIMIT 1", Conn.Connection);
+            float res = (float)req.ExecuteScalar();
+            return res;
+        }
+        public static int GetQuantity(int id, string isin, DBConn Conn)
+        {
+            MySqlCommand req1 = new MySqlCommand($"SELECT act_id FROM `action` WHERE act_isin = '{isin}'", Conn.Connection);
+            int res1 = (int)req1.ExecuteScalar();
+            Console.WriteLine($"id pour le ISIN {res1}");
+            MySqlCommand req2 = new MySqlCommand($"SELECT `prt_quantity` FROM `portfolio_stock` WHERE `portfolio_stock`.`stf_id` = '{id}' AND " +
+                $"`portfolio_stock`.`act_id` = '{res1}'", Conn.Connection);
+            int res2 = (int)req2.ExecuteScalar();
+            return res2;
+        }
 
 
     }
