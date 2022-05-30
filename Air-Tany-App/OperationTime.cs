@@ -119,7 +119,8 @@ namespace Air_Tany_App
 
         private void dtgOperation_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            string isin = dtgTitre.Rows[e.RowIndex].Cells[1].Value.ToString();
+            string isin = dtgOperation.Rows[e.RowIndex].Cells[1].Value.ToString();
+           
             SendAction form = new SendAction(isin);
             form.ShowDialog();
             form.Dispose();

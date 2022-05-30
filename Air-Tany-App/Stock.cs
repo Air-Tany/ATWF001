@@ -65,6 +65,7 @@ namespace Air_Tany_App
             Result result = (Result)serializer.ReadObject(memoryStream);
             
             Console.WriteLine(result.stocks.ToString());
+            
 
             DataTable dt = new DataTable();
             dt.Columns.Add("Action");

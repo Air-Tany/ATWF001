@@ -9,13 +9,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Configuration;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 
 namespace Air_Tany_App
 {
     public partial class SendAction : Form
     {
         string _isin;
-        
+        [DataContract]
+        internal class StockData
+        {
+            [DataMember]
+            internal string name;
+            [DataMember]
+            internal string isin;
+            [DataMember]
+            internal string ticker;
+            [DataMember]
+            internal float lastPrice;
+            [DataMember]
+            internal string lastPriceCurrency;
+            [DataMember]
+            internal string lastPriceDate;
+
+        }
+
+        [DataContract]
+        internal class Result
+        {
+            [DataMember]
+            internal List<StockData> stocks;
+
+        }
         public SendAction(string isin)
         {
             InitializeComponent();
@@ -25,7 +54,8 @@ namespace Air_Tany_App
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            int price = 20;
+            
+            float price = GetData(_isin);
             int quantity = (int)nudSend.Value;
             Console.WriteLine("isin =");
             Console.WriteLine(_isin);
@@ -51,7 +81,7 @@ namespace Air_Tany_App
                 else
                 {
                     float budget = Common.GetBudget(user.id, Program.connection);
-                    float newBudget = quantity * price + budget;
+                    float newBudget = (quantity * price) + budget;
                     MySqlTransaction transaction = Program.connection.Connection.BeginTransaction();
 
                     MySqlCommand cmd = Program.connection.Connection.CreateCommand();
@@ -121,6 +151,31 @@ namespace Air_Tany_App
         private void btnReturn_Click(object sender, EventArgs e)
         {
                Close();
+        }
+
+
+        public float GetData(string _isin)
+        {
+            string token = ConfigurationManager.ConnectionStrings["stockAPItoken"].ConnectionString;
+            string baseUrl = ConfigurationManager.ConnectionStrings["stockAPIurl"].ConnectionString;
+            string url = @baseUrl + $@"/prices/{_isin}";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.Headers.Add("Authorization", $"Bearer {token}");
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            string responseContent = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            Console.WriteLine("testtttttttttt");
+            Console.WriteLine(responseContent);
+            string price = responseContent.Split('\u002C')[3];
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(StockData));
+            MemoryStream memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(responseContent));
+            StockData result = (StockData)serializer.ReadObject(memoryStream);
+            float test = result.lastPrice;
+
+
+            return test;
+
+
         }
     }
 }

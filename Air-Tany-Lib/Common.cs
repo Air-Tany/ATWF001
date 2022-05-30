@@ -122,11 +122,13 @@ namespace Air_Tany_Lib
         {
             MySqlCommand req1 = new MySqlCommand($"SELECT act_id FROM `action` WHERE act_isin = '{isin}'", Conn.Connection);
             int res1 = (int)req1.ExecuteScalar();
+            Console.WriteLine($"id pour le ISIN {res1}");
             MySqlCommand req2 = new MySqlCommand($"SELECT `prt_quantity` FROM `portfolio_stock` WHERE `portfolio_stock`.`stf_id` = '{id}' AND " +
                 $"`portfolio_stock`.`act_id` = '{res1}'", Conn.Connection);
             int res2 = (int)req2.ExecuteScalar();
             return res2;
         }
+        
 
     }
 }
